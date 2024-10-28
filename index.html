@@ -32,7 +32,7 @@
             margin-right: 50px;
         }
 
-        .member_image {
+        .memberImage {
             width: 200px;
             height: 200px;
             margin: 40px 30px 40px 30px;
@@ -58,7 +58,7 @@
             padding: 0;
         }
 
-        .right-section {
+        .rightSection {
             width: 100vw;
             display: flex;
             flex-direction: column;
@@ -70,8 +70,7 @@
 
         }
 
-        
-        #side_bar {
+        #sideBar {
             font-family: "Black Han Sans", sans-serif;
             font-size: 25px;
             background-color: rgb(206, 0, 0);
@@ -82,8 +81,45 @@
             align-items: normal;
             justify-content: normal;
         }
-        .fs-4 {
-            font-size: 45px;
+
+        .drOh {
+            width: 100%;
+            display: flex;
+            flex-direction: row;
+            justify-content: center;
+            align-items: center;
+            margin: 0;
+            padding: 0;
+        }
+
+        .drOhImage {
+            width: 350px;
+            height: 350px;
+            margin: 40px 50px 40px 30px;
+            border: 3px solid black;
+            border-radius: 50%;
+        }
+
+        .speech-bubble {
+            position: relative;
+            background: #ffc107;
+            border-radius: .4em;
+            padding: 20px;
+        }
+
+        .speech-bubble:after {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 50%;
+            width: 0;
+            height: 0;
+            border: 37px solid transparent;
+            border-right-color: #ffc107;
+            border-left: 0;
+            border-top: 0;
+            margin-top: -18.5px;
+            margin-left: -37px;
         }
     </style>
 
@@ -116,12 +152,12 @@
     <main>
         <div class="layout">
             <!-- 사이드바 -->
-            <div id="side_bar" class="d-flex flex-column flex-shrink-0 p-3 text-bg-dark" style="width: 280px;">
+            <div id="sideBar" class="d-flex flex-column flex-shrink-0 p-3 text-bg-dark" style="width: 280px;">
                 <a href="/" class="d-flex align-items-center mb-3 mb-md-0 me-md-auto text-white text-decoration-none">
                     <svg class="bi pe-none me-2" width="40" height="32">
                         <use xlink:href="#bootstrap"></use>
                     </svg>
-                    <span class="fs-4">Monster A.K.A.ive</span>
+                    <span class="fs-4">[ Monster A.K.A.ive ]</span>
                 </a>
                 <hr>
                 <ul class="nav nav-pills flex-column mb-auto">
@@ -130,7 +166,7 @@
                             <svg class="bi pe-none me-2" width="16" height="16">
                                 <use xlink:href="#home"></use>
                             </svg>
-                            최슬기
+                            불꽃 포켓몬
                         </a>
                     </li>
                     <li>
@@ -138,7 +174,7 @@
                             <svg class="bi pe-none me-2" width="16" height="16">
                                 <use xlink:href="#speedometer2"></use>
                             </svg>
-                            송원빈
+                            물 포켓몬
                         </a>
                     </li>
                     <li>
@@ -146,7 +182,7 @@
                             <svg class="bi pe-none me-2" width="16" height="16">
                                 <use xlink:href="#table"></use>
                             </svg>
-                            사공세흔
+                            풀 포켓몬
                         </a>
                     </li>
                     <li>
@@ -154,7 +190,7 @@
                             <svg class="bi pe-none me-2" width="16" height="16">
                                 <use xlink:href="#table"></use>
                             </svg>
-                            서장원
+                            전기 포켓몬
                         </a>
                     </li>
                     <li>
@@ -162,7 +198,7 @@
                             <svg class="bi pe-none me-2" width="16" height="16">
                                 <use xlink:href="#table"></use>
                             </svg>
-                            박재상
+                            얼음 포켓몬
                         </a>
                     </li>
                     <li>
@@ -170,10 +206,9 @@
                             <svg class="bi pe-none me-2" width="16" height="16">
                                 <use xlink:href="#table"></use>
                             </svg>
-                            박양선
+                            격투 포켓몬
                         </a>
                     </li>
-
                 </ul>
                 <hr>
                 <div class="dropdown">
@@ -194,7 +229,7 @@
                 </div>
             </div>
 
-            <div class="right-section">
+            <div class="rightSection">
                 <!-- 게임 상단 바 -->
                 <header class="p-3 text-bg-dark">
                     <div class="container">
@@ -228,22 +263,27 @@
                     </div>
                 </header>
 
+                <!-- 오박사님 이미지와 말풍선 -->
+                <div class="drOh">
+                    <img src="images\오박사.jpg" alt="오박사님" class="drOhImage">
+                    <div class="speech-bubble">
+                        <h2>오늘은 코딩하기 좋은 날이구나!<br>원하는 포켓몬을 데려가렴.</h2>
+                    </div>
+                </div>
+
+
                 <div class="profile">
                     <!-- 멤버 사진(포켓몬 사진) -->
-                    <img src="images\Pokeball-PNG-Photos-279x279.png" alt="몬스터볼" class="member_image">
-                    <img src="images\Pokeball-PNG-Photos-279x279.png" alt="몬스터볼" class="member_image">
-                    <img src="images\Pokeball-PNG-Photos-279x279.png" alt="몬스터볼" class="member_image">
-                    <img src="images\Pokeball-PNG-Photos-279x279.png" alt="몬스터볼" class="member_image">
-                    <img src="images\Pokeball-PNG-Photos-279x279.png" alt="몬스터볼" class="member_image">
-                    <img src="images\Pokeball-PNG-Photos-279x279.png" alt="몬스터볼" class="member_image">
+                    <img src="images\Pokeball-PNG-Photos-279x279.png" alt="몬스터볼" class="memberImage">
+                    <img src="images\Pokeball-PNG-Photos-279x279.png" alt="몬스터볼" class="memberImage">
+                    <img src="images\Pokeball-PNG-Photos-279x279.png" alt="몬스터볼" class="memberImage">
+                    <img src="images\Pokeball-PNG-Photos-279x279.png" alt="몬스터볼" class="memberImage">
+                    <img src="images\Pokeball-PNG-Photos-279x279.png" alt="몬스터볼" class="memberImage">
+                    <img src="images\Pokeball-PNG-Photos-279x279.png" alt="몬스터볼" class="memberImage">
                 </div>
             </div>
         </div>
     </main>
-
-
-
-
 </body>
 
 </html>
