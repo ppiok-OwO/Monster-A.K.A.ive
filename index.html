@@ -33,9 +33,9 @@
         }
 
         .memberImage {
-            width: 200px;
-            height: 200px;
-            margin: 40px 30px 40px 30px;
+            width: 150px;
+            height: 150px;
+            margin: 20px;
             border: 3px solid black;
             border-radius: 50%;
         }
@@ -93,9 +93,9 @@
         }
 
         .drOhImage {
-            width: 350px;
-            height: 350px;
-            margin: 40px 50px 40px 30px;
+            width: 400px;
+            height: 400px;
+            margin: 40px 0 40px 0;
             border: 3px solid black;
             border-radius: 50%;
         }
@@ -162,6 +162,7 @@
         const app = initializeApp(firebaseConfig);
         const db = getFirestore(app);
 
+        // 배열로 구성해보자
         let memberItro =
             `<div class="memberIntro">
             자기소개를 넣는 곳!<br>
@@ -169,7 +170,7 @@
              </div>`
             ;
 
-        // 이미지 깨지는 문제를 해결해보기
+        // 반복문으로 배열을 돌려보자
         $("#memberImage1").click(async function memberAKA() {
             $("#main").html(memberItro);
         })
@@ -193,6 +194,14 @@
                         <a href="#" class="nav-link active" aria-current="page">
                             <svg class="bi pe-none me-2" width="16" height="16">
                                 <use xlink:href="#home"></use>
+                            </svg>
+                            포켓몬 타입
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#" class="nav-link text-white">
+                            <svg class="bi pe-none me-2" width="16" height="16">
+                                <use xlink:href="#speedometer2"></use>
                             </svg>
                             불꽃 포켓몬
                         </a>
@@ -303,12 +312,12 @@
 
                     <div class="profile">
                         <!-- 멤버 사진(포켓몬 사진) -->
-                        <img src="images\Pokeball-PNG-Photos-279x279.png" alt="몬스터볼" id="memberImage1">
-                        <img src="images\Pokeball-PNG-Photos-279x279.png" alt="몬스터볼" id="memberImage2">
-                        <img src="images\Pokeball-PNG-Photos-279x279.png" alt="몬스터볼" id="memberImage3">
-                        <img src="images\Pokeball-PNG-Photos-279x279.png" alt="몬스터볼" id="memberImage4">
-                        <img src="images\Pokeball-PNG-Photos-279x279.png" alt="몬스터볼" id="memberImage5">
-                        <img src="images\Pokeball-PNG-Photos-279x279.png" alt="몬스터볼" id="memberImage6">
+                        <img src="images/Pokeball-PNG-Photos-279x279.png" alt="몬스터볼" id="memberImage1">
+                        <img src="images/Pokeball-PNG-Photos-279x279.png" alt="몬스터볼" id="memberImage2">
+                        <img src="images/Pokeball-PNG-Photos-279x279.png" alt="몬스터볼" id="memberImage3">
+                        <img src="images/Pokeball-PNG-Photos-279x279.png" alt="몬스터볼" id="memberImage4">
+                        <img src="images/Pokeball-PNG-Photos-279x279.png" alt="몬스터볼" id="memberImage5">
+                        <img src="images/Pokeball-PNG-Photos-279x279.png" alt="몬스터볼" id="memberImage6">
                     </div>
                 </div>
 
