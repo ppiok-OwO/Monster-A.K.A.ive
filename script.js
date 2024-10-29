@@ -20,33 +20,22 @@ const firebaseConfig = {
 const app = initializeApp(firebaseConfig);
 const db = getFirestore(app);
 
-let memberIntro =
-    `
-    <div class="memberIntro">
-        <img src="images/벼리짱.png" class="member1Pocketmon">
-        <div class="card text-bg-warning mb-3" style="max-width: 20rem;">
-            <div class="card-header">최슬기</div>
-            <div class="card-body">
-                <h5 class="card-title">강철 포켓몬(희망)</h5>
-                <p class="card-text">성별 | ♀<br>특성 | 10년차 <a href="https://www.t1.gg/teams/leagueoflegends" target="_blank">T1팬</a>.<br>언제나 T1을 응원한다!</p>
-            </div>
-        </div>
-        <div class="card text-bg-warning mb-3" style="max-width: 30rem;">
-            <div class="card-header">좋아하는 것</div>
-            <div class="card-body">
-                <h5 class="card-title">반민초파, 강아지파, INFP</h5>
-                <p class="card-text">걸그룹 | 에스파, 레드벨벳<br>밴드 | 라쿠나, 실리카겔<br>게임 | 하스스톤, 롤, 테라리아</p>
-            </div>
-        </div>
-    </div>
-    `
-    ;
+// 오박사님을 대체할 구역의 html을 변수로 선언하기
 
+    //오박사님을 누르면 새로운 html로 대체하기
 $(".memberImage1").click(async function () {
-    $(".drOh").html(memberIntro);
-})
+    $(".drOh").load('memberIntro1.html');
+});
+$(".memberImage2").click(async function () {
+    $(".drOh").load('memberIntro2.html');
+});
+$(".memberImage3").click(async function () {
+    $(".drOh").load('memberIntro3.html');
+});
 
-let today = new Date();   
+
+// 오늘 날짜 표시하기
+let today = new Date();
 
 let year = today.getFullYear(); // 년도
 let month = today.getMonth() + 1;  // 월
