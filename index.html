@@ -14,7 +14,7 @@
 
     <style>
         /* 구글 폰트 import url */
-        @import url('https://fonts.googleapis.com/css2?family=Black+Han+Sans&family=Gowun+Dodum&display=swap');
+        @import url('https://fonts.googleapis.com/css2?family=Black+Han+Sans&family=Gowun+Dodum&family=Song+Myung&display=swap');
 
         header {
             font-family: "Black Han Sans", sans-serif;
@@ -121,6 +121,14 @@
             margin-top: -18.5px;
             margin-left: -37px;
         }
+
+        .memberIntro {
+            font-family: "Song Myung", serif;
+            font-weight: 400;
+            font-style: normal;
+            font-size: 50px;
+            margin: 40px;
+        }
     </style>
 
     <script type="module">
@@ -145,6 +153,18 @@
         // Firebase 인스턴스 초기화
         const app = initializeApp(firebaseConfig);
         const db = getFirestore(app);
+
+        let memberItro =
+            `<div class="memberIntro">
+            자기소개를 넣는 곳!<br>
+                <img src="https://i.namu.wiki/i/mqjqdIBwbCjnx-Ijn-gvPv26C1xrUO7TstvqZiLHLRZyHU6McSnMzs6BlLnScNKH-n9wGXwIedZ2UA3Q5fGgzZmAXCapv7_OYJWDPMre3sVoUBtxAcp31tN-kN5ZxhiG9idQXENh9RzDhQZuddHEPw.webp">
+             </div>`
+            ;
+
+        // 이미지 깨지는 문제를 해결해보기
+        $("#memberImage1").click(async function memberAKA() {
+            $("#main").html(memberItro);
+        })
     </script>
 </head>
 
@@ -263,24 +283,28 @@
                     </div>
                 </header>
 
-                <!-- 오박사님 이미지와 말풍선 -->
-                <div class="drOh">
-                    <img src="images\오박사.jpg" alt="오박사님" class="drOhImage">
-                    <div class="speech-bubble">
-                        <h2>오늘은 코딩하기 좋은 날이구나!<br>원하는 포켓몬을 데려가렴.</h2>
+                <div id="main">
+                    <!-- 오박사님 이미지와 말풍선 -->
+                    <div class="drOh">
+                        <img src="images\오박사.jpg" alt="오박사님" class="drOhImage">
+                        <div class="speech-bubble">
+                            <h2>오늘은 코딩하기 좋은 날이구나!<br>원하는 포켓몬을 데려가렴.</h2>
+                        </div>
+                    </div>
+
+
+                    <div class="profile">
+                        <!-- 멤버 사진(포켓몬 사진) -->
+                        <img src="images\Pokeball-PNG-Photos-279x279.png" alt="몬스터볼" id="memberImage1">
+                        <img src="images\Pokeball-PNG-Photos-279x279.png" alt="몬스터볼" id="memberImage2">
+                        <img src="images\Pokeball-PNG-Photos-279x279.png" alt="몬스터볼" id="memberImage3">
+                        <img src="images\Pokeball-PNG-Photos-279x279.png" alt="몬스터볼" id="memberImage4">
+                        <img src="images\Pokeball-PNG-Photos-279x279.png" alt="몬스터볼" id="memberImage5">
+                        <img src="images\Pokeball-PNG-Photos-279x279.png" alt="몬스터볼" id="memberImage6">
                     </div>
                 </div>
 
 
-                <div class="profile">
-                    <!-- 멤버 사진(포켓몬 사진) -->
-                    <img src="images\Pokeball-PNG-Photos-279x279.png" alt="몬스터볼" class="memberImage">
-                    <img src="images\Pokeball-PNG-Photos-279x279.png" alt="몬스터볼" class="memberImage">
-                    <img src="images\Pokeball-PNG-Photos-279x279.png" alt="몬스터볼" class="memberImage">
-                    <img src="images\Pokeball-PNG-Photos-279x279.png" alt="몬스터볼" class="memberImage">
-                    <img src="images\Pokeball-PNG-Photos-279x279.png" alt="몬스터볼" class="memberImage">
-                    <img src="images\Pokeball-PNG-Photos-279x279.png" alt="몬스터볼" class="memberImage">
-                </div>
             </div>
         </div>
     </main>
