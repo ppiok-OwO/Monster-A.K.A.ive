@@ -1,5 +1,5 @@
 /* 구글 폰트 import url */
-@import url('https://fonts.googleapis.com/css2?family=Black+Han+Sans&family=Do+Hyeon&family=Gowun+Dodum&family=Orbit&family=Song+Myung&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Black+Han+Sans&family=Do+Hyeon&family=Gowun+Dodum&family=Jua&family=Orbit&family=Song+Myung&display=swap');
 
 /* 헤더(상단 바) */
 header {
@@ -66,13 +66,13 @@ header {
 /* 상단바 오른쪽 구역 */
 .rightSection {
     width: 100%;
+    height: 100%;
     display: flex;
     flex-direction: column;
-    align-items: flex-start;
-    justify-content: space-around;
+    align-items: center;
+    justify-content: flex-start;
     margin: 0;
     padding: 0;
-    align-content: flex-start;
 
 }
 
@@ -90,6 +90,7 @@ header {
 /* 오박사님과 말풍선 */
 .drOh {
     width: 100%;
+    height: 80%;
     display: flex;
     flex-direction: row;
     justify-content: center;
@@ -150,6 +151,7 @@ header {
 /* 전체 구역의 너비 조절하기 */
 #main {
     width: 100%;
+    height: 650px;
 }
 
 /* 자기소개 카드 */
@@ -171,4 +173,3 @@ header {
 	background-color: white;
 	color: black;
 }
-

@@ -20,19 +20,24 @@ const firebaseConfig = {
 const app = initializeApp(firebaseConfig);
 const db = getFirestore(app);
 
-// 오박사님을 대체할 구역의 html을 변수로 선언하기
-
-    //오박사님을 누르면 새로운 html로 대체하기
+// 몬스터볼을 누르면 오박사님을 새로운 html 파일로 대체하기
+// 각 html파일에 해당하는 css파일 적용하기
 $(".memberImage1").click(async function () {
+    $('link[rel="stylesheet"]').attr('href', 'styles1.css');
     $(".drOh").load('memberIntro1.html');
 });
 $(".memberImage2").click(async function () {
+    $('link[rel="stylesheet"]').attr('href', 'styles2.css');
     $(".drOh").load('memberIntro2.html');
 });
 $(".memberImage3").click(async function () {
+    $('link[rel="stylesheet"]').attr('href', 'styles3.css');
     $(".drOh").load('memberIntro3.html');
 });
-
+$(".memberImage4").click(async function () {
+    $('link[rel="stylesheet"]').attr('href', 'styles4.css');
+    $(".drOh").load('memberIntro4.html');
+});
 
 // 오늘 날짜 표시하기
 let today = new Date();
@@ -41,5 +46,5 @@ let year = today.getFullYear(); // 년도
 let month = today.getMonth() + 1;  // 월
 let date = today.getDate();  // 날짜
 
-let today_date = year+"년 "+month+"월 "+date+"일";
+let today_date = year + "년 " + month + "월 " + date + "일";
 $("#today_date").text(today_date);
