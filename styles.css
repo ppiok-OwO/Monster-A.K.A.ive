@@ -148,3 +148,7 @@ header>li {
 	background-color: white;
 	color: black;
 }
+
+.profile>img:hover{
+    transform: scale(125%,125%);
+}
