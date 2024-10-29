@@ -1,5 +1,12 @@
 @import url('https://fonts.googleapis.com/css2?family=Black+Han+Sans&family=Do+Hyeon&family=Gowun+Dodum&family=Jua&family=Orbit&family=Song+Myung&display=swap');
 
+.memberIntro {
+    display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+}
+
 /* 상단 부분 */
 .top {
     font-family: "Gowun Dodum", serif;
