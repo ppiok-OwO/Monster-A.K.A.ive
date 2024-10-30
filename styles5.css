@@ -2,112 +2,228 @@
 
 /* 멤버를 소개하는 구역(몬스터볼을 클릭하면 "오박사님과 말풍선"이라는 html을 대체한다.) */
 .memberIntro {
-    display: flex;
-	flex-direction: row;
-	align-items: center;
-	justify-content: center;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
 }
 
 /* 카드 스타일 설정 */
 .pys_pokemon-card {
-    width: 320px;
-    border: 4px solid #f04b48;
-    border-bottom-width: 12px; 
-    background-color: #000;
-    color: #fff;
-    padding: 10px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); 
-    font-size: 16px;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    position: relative;
+  width: 320px;
+  border: 4px solid #f04b48;
+  border-bottom-width: 12px;
+  background-color: #000;
+  color: #fff;
+  padding: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  font-size: 16px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  position: relative;
 }
 
 /* 카드 상단 이미지와 텍스트 컨테이너 */
 .pys_pokemon-header {
-    display: flex;
-    align-items: center;
-    justify-content: flex-start;
-    width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  width: 100%;
 }
 
 /* 이미지 스타일 */
 .pys_pokemon-image {
-    margin-right: 10px;
+  margin-right: 10px;
 }
 
 .pys_pokemon-image img {
-    width: 140px;
-    height: 150px; 
+  width: 140px;
+  height: 150px;
 }
 
 /* 포켓몬 정보 텍스트 스타일 */
 .pys_pokemon-details {
-    text-align: left;
-    font-size: 16px;
-    line-height: 1.4;
+  text-align: left;
+  font-size: 16px;
+  line-height: 1.4;
 }
 
 .pys_pokemon-details h1 {
-    font-size: 24px; 
-    margin: 0;
+  font-size: 24px;
+  margin: 0;
 }
 
 /* 구분선 스타일 */
 .pys_separator {
-    border-top: 2px solid #f04b48;
-    width: 100%;
+  border-top: 2px solid #f04b48;
+  width: 100%;
+  margin-top: 10px;
+  margin-bottom: 5px;
 }
 
 /* 설명 텍스트 스타일 */
 .pys_pokemon-stats {
-    font-size: 16px;
-    line-height: 1.5;
-    text-align: center;
-    padding-bottom: 80px; 
+  font-size: 16px;
+  line-height: 1.5;
+  text-align: center;
+  padding-bottom: 80px;
 }
 
 /* 하단 버튼 스타일 */
 .pys_bottom-buttons {
-    display: flex;
-    justify-content: space-around;
-    background-color: #f04b48;
-    padding: 15px 0 4px 0;
-    border-radius: 0 0 5px 5px;
-    width: 100%;
-    box-sizing: border-box;
-    position: absolute;
-    bottom: 0;
-    left: 0;
+  display: flex;
+  justify-content: space-around;
+  background-color: #f04b48;
+  padding: 15px 0 4px 0;
+  border-radius: 0 0 5px 5px;
+  width: 100%;
+  box-sizing: border-box;
+  position: absolute;
+  bottom: 0;
+  left: 0;
 }
 
 /* 개별 버튼 스타일 */
 .pys_bottom-buttons button {
-    background-color: #fff;
-    color: #f04b48;
-    border: none;
-    width: 50px;
-    height: 50px;
-    border-radius: 50%; 
-    font-size: 14px;
-    font-weight: bold;
-    cursor: pointer;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    position: relative;
-    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.6); 
+  background-color: #fff;
+  color: #f04b48;
+  border: none;
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  font-size: 14px;
+  font-weight: bold;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.6);
 }
 /* 버튼 호버 색상 */
 .pys_bottom-buttons button:hover {
-    background-color: #ffcccc; 
+  background-color: #ffcccc;
 }
 
 /* 버튼 아래 설명 텍스트 스타일 */
 .pys_button-text {
-    color: #e4e2e2;
-    font-size: 12px;
-    text-align: center;
-    margin-top: 8px;
+  color: #e4e2e2;
+  font-size: 12px;
+  text-align: center;
+  margin-top: 8px;
+}
+/* 모달 배경 */
+.modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.5);
+  display: none;
+  justify-content: center;
+  align-items: center;
+}
+/* 모달 창 스타일 */
+.modal-content {
+  width: 700px; /* 가로 크기를 2배로 확대 */
+  border: 3px solid #a0a0a0;
+  background-color: #ffffff;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
+  text-align: center;
+  max-height: 80vh;
+  overflow-y: auto;
+}
+
+.guestbook-title {
+  font-size: 24px;
+  color: #333;
+  font-weight: bold;
+  margin-bottom: 15px;
+}
+.guestbook-entry {
+  border: 2px solid #dcdcdc;
+  background-color: #fafafa;
+  border-radius: 8px;
+  padding: 10px;
+  margin-bottom: 15px;
+  text-align: left;
+}
+.guestbook-entry p {
+  margin: 0;
+  color: #000;
+}
+/* 입력 필드 스타일 */
+.entry-form input,
+.entry-form textarea {
+  width: 100%;
+  padding: 8px;
+  margin: 5px 0;
+  border: 2px solid #dcdcdc; /* guestbook-entry와 동일한 테두리 */
+  background-color: #fafafa; /* guestbook-entry와 동일한 배경 */
+  border-radius: 8px; /* guestbook-entry와 동일한 둥근 테두리 */
+  font-size: 14px;
+  box-sizing: border-box; /* 테두리 스타일 통일 */
+}
+.entry-form textarea::placeholder,
+.entry-form input::placeholder {
+  font-size: 13px;
+}
+/* 버튼 컨테이너 스타일 */
+.button-container {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 5px;
+  margin-bottom: 30px;
+}
+/* 버튼 스타일 */
+.entry-form button,
+.close-button {
+  width: 48%; /* 버튼을 한 줄에 배치하기 위해 50% 미만 설정 */
+  padding: 10px;
+  border: none;
+  background-color: #76b6f7;
+  color: white;
+  font-weight: bold;
+  font-size: 16px;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+.entry-form button:hover,
+.close-button:hover {
+  background-color: #5a9de6;
+}
+/* 방명록 리스트 영역*/
+.guestbook-list {
+  margin-top: 1px;
+  text-align: left;
+  max-height: 300px; /* 글 공간에 높이 제한 */
+  overflow-y: auto; /* 스크롤 가능 */
+  padding: 10px;
+  border: 2px solid #dcdcdc; /* 테두리 스타일 추가 */
+  background-color: #fafafa;
+  border-radius: 8px;
+  color: #000;
+}
+.guestbook-item {
+  border: 1px solid #dcdcdc;
+  padding: 8px;
+  border-radius: 5px;
+  background-color: #f9f9f9;
+  margin-bottom: 10px;
+  color: #000;
+}
+.guestbook-item p {
+  margin: 0;
+}
+.guestbook-list-title {
+  font-size: 18px;
+  font-weight: bold;
+  color: #333;
+  margin-bottom: 10px;
+  text-align: left; /* 왼쪽 정렬 */
 }

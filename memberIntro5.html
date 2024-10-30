@@ -1,45 +1,122 @@
 <div class="memberIntro">
-
-    <div class="pys_pokemon-card">
-        <!-- 상단: 이미지와 포켓몬 정보 -->
-        <div class="pys_pokemon-header">
-            <div class="pys_pokemon-image">
-                <img src="images/양선몬.PNG" alt="인간형포켓몬">
-            </div>
-            <div class="pys_pokemon-details">
-                <h1>박양선 몬</h1>
-                <p>인간형 포켓몬</p>
-                <p>타입: B형, INFP</p>
-                <p>성격: 조심스러운 성격</p>
-            </div>
-        </div>
-
-        <!-- 구분선 -->
-        <div class="pys_separator"></div>
-
-        <!-- 포켓몬 설명 텍스트 -->
-        <div class="pys_pokemon-stats">
-            <p>겁이 많고 신중하다고 알려져 있고</p>
-            <p>이해와 기다림이 필요하다고 한다.</p>
-            <p>하지만 동료와 함께 한다면 </p>
-            <p>누구보다 용감해 진다고 한다.</p>
-        </div>
-
-        <!-- 하단 버튼 섹션 -->
-        <div class="pys_bottom-buttons">
-            <div style="text-align: center;">
-                <button>⚪</button>
-                <div class="pys_button-text">먹이주기</div>
-            </div>
-            <div style="text-align: center;">
-                <button>⚪</button>
-                <div class="pys_button-text">자세히보기</div>
-            </div>
-            <div style="text-align: center;">
-                <button>⚪</button>
-                <div class="pys_button-text">이야기하기</div>
-            </div>
-        </div>
+  <div class="pys_pokemon-card">
+    <!-- 상단: 이미지와 포켓몬 정보 -->
+    <div class="pys_pokemon-header">
+      <div class="pys_pokemon-image">
+        <img src="images/양선몬.PNG" alt="인간형포켓몬" />
+      </div>
+      <div class="pys_pokemon-details">
+        <h1>박양선 몬</h1>
+        <p>인간형 포켓몬</p>
+        <p>타입: B형, INFP</p>
+        <p>성격: 조심한 성격</p>
+      </div>
     </div>
 
+    <!-- 구분선 -->
+    <div class="pys_separator"></div>
+
+    <!-- 포켓몬 설명 텍스트 -->
+    <div class="pys_pokemon-stats">
+      <p>겁이 많고 신중하다고 알려져 있고</p>
+      <p>이해와 기다림이 필요하다고 한다.</p>
+      <p>하지만 동료와 함께 한다면</p>
+      <p>누구보다 용감해 진다고 한다.</p>
+    </div>
+
+    <!-- 하단 버튼 섹션 -->
+    <div class="pys_bottom-buttons">
+      <div style="text-align: center">
+        <button>⚪</button>
+        <div class="pys_button-text">먹이 주기</div>
+      </div>
+      <div style="text-align: center">
+        <button>⚪</button>
+        <div class="pys_button-text">자세히 보기</div>
+      </div>
+      <div style="text-align: center">
+        <button onclick="openGuestbook()">⚪</button>
+        <div class="pys_button-text">말 걸기</div>
+      </div>
+    </div>
+    <!-- 모달 오버레이 및 콘텐츠 -->
+    <div class="modal-overlay" id="modalOverlay">
+      <div class="modal-content">
+        <div class="guestbook-title">포켓몬 방명록</div>
+        <div class="guestbook-entry">
+          <p>포켓몬에게 글을 남겨 보아요.</p>
+          <p>상처 받지 않도록 주의해 주세요.</p>
+        </div>
+
+        <form class="entry-form" onsubmit="addEntry(event)">
+          <input
+            id="nameInput"
+            type="text"
+            placeholder="이름을 입력하세요"
+            required
+          />
+          <textarea
+            id="messageInput"
+            placeholder="메시지를 입력하세요 (50자 이하)"
+            rows="3"
+            maxlength="50"
+            required
+          ></textarea>
+
+          <!-- 버튼을 한 줄로 배치 -->
+          <div class="button-container">
+            <button type="submit">등록하기</button>
+            <button class="close-button" onclick="closeGuestbook()">
+              닫기
+            </button>
+          </div>
+        </form>
+
+        <h3 class="guestbook-list-title">방명록 리스트</h3>
+
+        <!-- 방명록 리스트 -->
+        <div class="guestbook-list" id="guestbookList">
+          <p id="noEntriesMessage">등록된 방명록이 없습니다.</p>
+        </div>
+      </div>
+    </div>
+
+    <script>
+      // 모달 열기 함수
+      function openGuestbook() {
+        document.getElementById('modalOverlay').style.display = 'flex';
+      }
+
+      // 모달 닫기 함수
+      function closeGuestbook() {
+        document.getElementById('modalOverlay').style.display = 'none';
+      }
+      function addEntry(event) {
+        event.preventDefault(); // 폼 제출 방지
+
+        // 입력된 이름과 메시지 가져오기
+        const name = '이름: ' + document.getElementById('nameInput').value;
+        const message =
+          '메시지: ' + document.getElementById('messageInput').value;
+
+        // 초기 안내 메시지를 숨기기
+        const noEntriesMessage = document.getElementById('noEntriesMessage');
+        if (noEntriesMessage) {
+          noEntriesMessage.style.display = 'none';
+        }
+
+        // 새 방명록 항목 생성
+        const entry = document.createElement('div');
+        entry.className = 'guestbook-item';
+        entry.innerHTML = `<p><strong>${name}</strong></p><p>${message}</p>`;
+
+        // 방명록 리스트에 항목 추가
+        document.getElementById('guestbookList').appendChild(entry);
+
+        // 입력 필드 초기화
+        document.getElementById('nameInput').value = '';
+        document.getElementById('messageInput').value = '';
+      }
+    </script>
+  </div>
 </div>
