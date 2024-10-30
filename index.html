@@ -30,13 +30,6 @@
             overflow: auto;
         }
 
-        /* 전체 너비로 페이지를 설정 */
-        /* * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        } */
-
         /* 헤더(상단 바) */
         header {
             height: 100px;
@@ -159,6 +152,27 @@
         .memberIntro {
             width: 100%;
         }
+
+        .TeamIntro {
+            display: none;
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100vh;
+            overflow: auto;
+            background: rgba(0, 0, 0, 0.5);
+        }
+
+        .TeamIntroPopUp {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            padding: 10px;
+            background: #ffffff;
+            border-radius: 20px;
+        }
     </style>
 </head>
 
@@ -268,19 +282,19 @@
                             <!-- 랜덤 포켓몬 상호작용 위해 id 부여 -->
                             <li><a href="#" class="nav-link px-2 text-white" id="randomPokemon">랜덤 포켓몬!</a></li>
                             <li>
-                            <li><a href="#" class="nav-link px-2 text-white">팀 소개</a></li>
+                            <li><a href="#" class="nav-link px-2 text-white" id="teamIntro">팀 소개</a></li>
                             <li>
                                 <a href="#" class="nav-link px-2 text-white">오늘 날짜 : <span id="today_date"></span></a>
                             </li>
                         </ul>
 
                         <form class="col-12 col-lg-auto mb-3 mb-lg-0 me-lg-3" role="search">
-                            <input type="search" class="form-control form-control-dark text-bg-white"
+                            <input id="searchText" type="search" class="form-control form-control-dark text-bg-white"
                                 placeholder="포켓몬 이름 검색..." aria-label="Search" />
                         </form>
 
                         <div class="text-end">
-                            <button type="button" class="btn btn-outline-light me-2">
+                            <button type="button" id="searchButton" class="btn btn-outline-light me-2">
                                 검색
                             </button>
                         </div>
@@ -306,6 +320,22 @@
                 <img src="images/Pokeball-PNG-Photos-279x279.png" alt="몬스터볼" class="memberImage6">
             </div>
 
+            <div class="TeamIntro">
+                <div class="TeamIntroPopUp">
+                    <!-- 부트스트랩 카드 가져옴 -->
+                    <div class="card">
+                        <div class="card-header">Featured</div>
+                        <div class="card-body">
+                            <h5 class="card-title">Special title treatment</h5>
+                            <p class="card-text">
+                                With supporting text below as a natural lead-in to additional
+                                content.
+                            </p>
+                            <button class="ClosePopUp">닫기</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
     </div>
 

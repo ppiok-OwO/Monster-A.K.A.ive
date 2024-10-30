@@ -49,3 +49,22 @@ let date = today.getDate();  // 날짜
 
 let today_date = year + "년 " + month + "월 " + date + "일";
 $("#today_date").text(today_date);
+
+// 팀 소개 모달 창이 튀어나옵니다!
+$('#teamIntro').on('click', function () {
+    $('.TeamIntro').css('display', 'block');
+});
+
+$('.ClosePopUp').on('click', function () {
+    $('.TeamIntro').css('display', 'none');
+});
+
+// 검색 기능!
+$('#searchButton').click(function () {
+    // 검색창에 입력한 값을 변수에 저장
+    let searchInput = $('#searchText').val();
+    // 포켓몬 도감 페이지 url에 searchInput 문자열을 합쳐주기
+    let url = "https://pokemonkorea.co.kr/pokedex?word=" + searchInput;
+    // 새 창에서 열기
+    window.open(url);
+});
