@@ -23,7 +23,6 @@ const db = getFirestore(app);
 // 디렉토리에서 html을 로드하는 메서드
 function loadIntro(num) {
     $('link[rel="stylesheet"]').attr('href', `styles${num}.css`);
-    $(".DrOh").empty();
     $(".DrOh").load(`memberIntro${num}.html`);
 }
 
