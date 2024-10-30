@@ -1,63 +1,43 @@
 <div class="memberIntro">
-    <main>
-        <!-- 상단 바 -->
-        <div class="top">
-            <p>포켓몬 도감 등록 완료!</p>
+  <main>
+    <!-- 상단 바 -->
+    <div class="top">
+      <p>포켓몬 도감 등록 완료!</p>
+    </div>
+
+    <!-- 메인1 - 포켓몬 이미지와 조원 소개 -->
+    <div class="main">
+      <div class="mainImg">
+        <img src="images/pokemon2.png" id="pokemonImg" />
+      </div>
+      <div id="pokemonIntro">
+        <div id="type_intro">
+          <h3 id="whatType1">타입</h3>
+          <h3 id="whatType2">불</h3>
+          <h3 id="whatType3">땅</h3>
         </div>
-
-        <!-- 메인1 - 포켓몬 이미지와 조원 소개 -->
-        <div class="main">
-            <div class="mainImg">
-                <img src="images/pokemon2.png" id="pokemonImg">
-            </div>
-            <div id="teammate">
-                <div id="mate_name">
-                    <h2> 테스트</h2>
-                </div>
-                <div id="mate_content">
-                    <p> 테스트 </p>
-                </div>
-            </div>
+        <div class="IntroContent">
+          <h3 id="name_intro">이름 : 송원빈</h3>
         </div>
-
-        <!-- 하단 바 -->
-        <div class="down">
-            <div>
-                <!-- 먹이 주면 포켓몬 위아래로 살짝 흔들림 -->
-                <!-- 작동 안 되는 중 -->
-                <button class="downBtn" id="feed">먹이를 준다</button>
-                <!-- 조원 블로그와 깃허브 주소가 나오는 모달 창 열림 -->
-                <button class="downBtn" id="showDetail">자세히 본다</button>
-                <!-- 화면 닫기 -->
-                <button class="downBtn">놓아준다</button>
-            </div>
+        <div class="IntroContent">
+          <h3 id="hobby_intro">좋아하는 것 : 게임, 애니</h3>
         </div>
-
-        <!-- 자세히 본다 누르면 주소 알려주는 모달창 -->
-        <div id="detail_modal">
-            <div id="modal_popup">
-                <p> 블로그 : https://bb201802.tistory.com/</p>
-                <p> 깃허브 : </p>
-                <button id="modal_close"> 닫기 </button>
-            </div>
+        <div class="IntroContent">
+          <h3 id="strong_intro">강점 : "그럴 수 있지" 마인드</h3>
         </div>
-    </main>
+      </div>
+    </div>
 
-
-    <!-- jquery 연결 -->
-    <!--
-    <script src="https://code.jquery.com/jquery-3.7.1.slim.min.js"/
-        integrity="sha256-kmHvs0B+OpCW5GVHUNjv9rOmY0IvSIRcf7zGUDTDQM8=" crossorigin="anonymous"></script>
-
-    <script>
-        // 자세히 본다 클릭 시 모달창 등장
-        document.querySelector('#showDetail').addEventListener('click', function () {
-            $('#detail_modal').css('display', 'block');
-        });
-
-        // 닫기 누르면 모달창 꺼짐
-        document.querySelector('#modal_close').addEventListener('click', function () {
-            $('#detail_modal').css('display', 'none');
-        });
-    </script> -->
+    <!-- 하단 바 -->
+    <div class="down">
+      <div>
+        <!-- 작동 X -->
+        <button class="downBtn" id="feed">먹이를 준다</button>
+        <!-- 작동 X -->
+        <button class="downBtn" id="showDetail">자세히 본다</button>
+        <!-- 작동 X -->
+        <button class="downBtn" id="leave">놓아준다</button>
+      </div>
+    </div>
+  </main>
 </div>

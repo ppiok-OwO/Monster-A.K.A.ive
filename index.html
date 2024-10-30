@@ -46,7 +46,7 @@
         }
 
         /* 몬스터볼들 */
-        .profile {
+        .Profile {
             display: inline-flex;
             flex-direction: row;
             justify-content: space-around;
@@ -55,7 +55,7 @@
         }
 
         /* 몬스터볼 이미지 */
-        .profile>img {
+        .Profile>img {
             height: 200px;
             margin: 40px 15px;
             padding: 0;
@@ -64,13 +64,13 @@
         }
 
         /* 몬스터볼에 마우스를 올리면 하얗게 빛이 난다. */
-        .profile>img:hover {
+        .Profile>img:hover {
             transform: scale(125%, 125%);
             filter: brightness(300%);
         }
 
-        /* 전체 레이아웃 정렬하기 <sideBar | rightSection> 구조로 */
-        .layout {
+        /* 전체 레이아웃 정렬하기 <sideBar | RightSection> 구조로 */
+        .Layout {
             width: 100%;
             height: 900px;
 
@@ -97,7 +97,7 @@
         }
 
         /* 상단바 오른쪽 구역 */
-        .rightSection {
+        .RightSection {
             width: 100%;
             display: inline-flex;
             flex-direction: column;
@@ -120,7 +120,7 @@
         }
 
         /* 오박사님과 말풍선 */
-        .drOh {
+        .DrOh {
             width: 100%;
             height: 500px;
             display: inline-flex;
@@ -132,10 +132,10 @@
         }
 
         /* 오박사님 이미지 */
-        .drOhImage {
+        .DrOhImage {
             width: 350px;
             height: 350px;
-            margin: 10px;
+            margin: 10px 60px;
             border: 3px solid black;
             border-radius: 50%;
         }
@@ -169,16 +169,63 @@
             top: 50%;
             left: 50%;
             transform: translate(-50%, -50%);
-            padding: 10px;
+            padding: 20px;
             background: #ffffff;
             border-radius: 20px;
+
+            align-items: center;
+            justify-content: center;
+        }
+
+        .TeamIntroPopUp>h4 {
+            font-family: "Black Han Sans", sans-serif;
+            background-color: rgb(206, 0, 0);
+
+            color: white;
+            font-size: 50px;
+            font-weight: normal;
+            text-align: center;
+
+            width: 800px;
+            height: 80px;
+            margin-bottom: 20px;
+            padding: 10px;
+
+            border-radius: 10px;
+        }
+
+        .TeamIntroPopUp>p, h5 {
+            font-family: "Do Hyeon", sans-serif;
+            font-size: 22px;
+            color: darkblue;
+        }
+
+        .CloseBtnPosition {
+            float: right;
+        }
+
+        .CloseBtnPosition>button {
+            background-color: rgb(206, 0, 0);
+            color: white;
+            width: 100px;
+            height: 40px;
+            font-size: 20px;
+
+            border-color: rgb(206, 0, 0);
+            border-radius: 5px;
+        }
+
+        .CloseBtnPosition>button:hover {
+            background-color: white;
+            color: rgb(206, 0, 0);
+            border-color: rgb(206, 0, 0);
         }
     </style>
 </head>
 
 <body>
 
-    <div class="layout">
+    <div class="Layout">
         <!-- 사이드바 -->
         <div id="sideBar" class="d-flex flex-column flex-shrink-0 p-3 text-bg-red" style="width: 280px;">
             <a href="/" class="d-flex align-items-center mb-3 mb-md-0 me-md-auto text-dark text-decoration-none">
@@ -265,7 +312,7 @@
             </div>
         </div>
 
-        <div class="rightSection">
+        <div class="RightSection">
             <!-- 게임 상단 바 -->
             <header class="p-3 text-bg-red">
                 <div class="container">
@@ -303,36 +350,36 @@
             </header>
 
             <!-- 오박사님 이미지와 말풍선 -->
-            <div class="drOh">
-                <img src="images\오박사.jpg" alt="오박사님" class="drOhImage">
+            <div class="DrOh">
+                <img src="images\오박사.jpg" alt="오박사님" class="DrOhImage">
                 <div class="speech-bubble">
                     <h2>오늘은 코딩하기 좋은 날이구나!<br>원하는 포켓몬을 데려가렴.</h2>
                 </div>
             </div>
 
-            <div class="profile">
+            <div class="Profile">
                 <!-- 멤버 사진(포켓몬 사진) -->
-                <img src="images/Pokeball-PNG-Photos-279x279.png" alt="몬스터볼" class="memberImage1">
-                <img src="images/Pokeball-PNG-Photos-279x279.png" alt="몬스터볼" class="memberImage2">
-                <img src="images/Pokeball-PNG-Photos-279x279.png" alt="몬스터볼" class="memberImage3">
-                <img src="images/Pokeball-PNG-Photos-279x279.png" alt="몬스터볼" class="memberImage4">
-                <img src="images/Pokeball-PNG-Photos-279x279.png" alt="몬스터볼" class="memberImage5">
-                <img src="images/Pokeball-PNG-Photos-279x279.png" alt="몬스터볼" class="memberImage6">
+                <img src="images/Pokeball-PNG-Photos-279x279.png" alt="몬스터볼" class="MemberImage1">
+                <img src="images/Pokeball-PNG-Photos-279x279.png" alt="몬스터볼" class="MemberImage2">
+                <img src="images/Pokeball-PNG-Photos-279x279.png" alt="몬스터볼" class="MemberImage3">
+                <img src="images/Pokeball-PNG-Photos-279x279.png" alt="몬스터볼" class="MemberImage4">
+                <img src="images/Pokeball-PNG-Photos-279x279.png" alt="몬스터볼" class="MemberImage5">
+                <img src="images/Pokeball-PNG-Photos-279x279.png" alt="몬스터볼" class="MemberImage6">
             </div>
 
             <div class="TeamIntro">
                 <div class="TeamIntroPopUp">
-                    <!-- 부트스트랩 카드 가져옴 -->
-                    <div class="card">
-                        <div class="card-header">Featured</div>
-                        <div class="card-body">
-                            <h5 class="card-title">Special title treatment</h5>
-                            <p class="card-text">
-                                With supporting text below as a natural lead-in to additional
-                                content.
-                            </p>
-                            <button class="ClosePopUp">닫기</button>
-                        </div>
+                    <h4>팀 소개</h4>
+                    <h5>** Monster Archive + A.K.A(As Known As) **</h5>
+                    <p>야생의 코딩이 나타났다?! 오박사님의 조언에 따라 7조의 포켓몬들과 함께 코딩을 해치웁시다!</p>
+                    <p>7조의 포켓몬들을 소개하는 공간입니다.</p>
+                    <h5>** Ground Rules **</h5>
+                    <p>1. 웹개발 강의를 열심히 듣고 왕초보 탈출하기!</p>
+                    <p>2. 모르는 게 있으면 반드시 물어보기!</p>
+                    <p>3. 소통을 언제나 적극적으로!</p>
+                    <p>4. 매너있게 소통합시다. 언제든 다시 만날 수 있다는 걸 기억하기!</p>                    
+                    <div class="CloseBtnPosition">
+                        <button class="ClosePopUp">닫 기</button>
                     </div>
                 </div>
             </div>

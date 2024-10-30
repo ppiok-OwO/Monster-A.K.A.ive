@@ -23,14 +23,14 @@ const db = getFirestore(app);
 // 디렉토리에서 html을 로드하는 메서드
 function loadIntro(num) {
     $('link[rel="stylesheet"]').attr('href', `styles_css/styles${num}.css`);
-    $(".drOh").empty();
-    $(".drOh").load(`/memberIntro_html/memberIntro${num}.html`);    
+    $(".DrOh").empty();
+    $(".DrOh").load(`/memberIntro_html/memberIntro${num}.html`);
 }
 
 // 몬스터볼을 누르면 오박사님을 새로운 html 파일로 대체하기
 // 각 html 파일에 해당하는 css 파일 적용하기
 for (let i = 1; i <= 6; i++) {
-    $(`.memberImage${i}`).click(function () {
+    $(`.MemberImage${i}`).click(function () {
         loadIntro(i);
     });
 }
@@ -51,12 +51,20 @@ let today_date = year + "년 " + month + "월 " + date + "일";
 $("#today_date").text(today_date);
 
 // 팀 소개 모달 창이 튀어나옵니다!
-$('#teamIntro').on('click', function () {
-    $('.TeamIntro').css('display', 'block');
+// $('#teamIntro').on('click', function () {
+//     $('.TeamIntro').css('display', 'block');
+// });
+
+// $('.ClosePopUp').on('click', function () {
+//     $('.TeamIntro').css('display', 'none');
+// });
+
+document.querySelector('#teamIntro').addEventListener('click', function () {
+    document.querySelector('.TeamIntro').style.display = 'block';
 });
 
-$('.ClosePopUp').on('click', function () {
-    $('.TeamIntro').css('display', 'none');
+document.querySelector('.ClosePopUp').addEventListener('click', function () {
+    document.querySelector('.TeamIntro').style.display = 'none';
 });
 
 // 검색 기능!
@@ -68,3 +76,4 @@ $('#searchButton').click(function () {
     // 새 창에서 열기
     window.open(url);
 });
+

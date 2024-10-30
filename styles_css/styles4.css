@@ -1,142 +1,138 @@
 @import url('https://fonts.googleapis.com/css2?family=Black+Han+Sans&family=Do+Hyeon&family=Gowun+Dodum&family=Jua&family=Orbit&family=Song+Myung&display=swap');
 
 .memberIntro {
-    display: flex;
-	flex-direction: column;
-	align-items: center;
-	justify-content: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
 }
 
 /* 상단 부분 */
 .top {
-    font-family: "Gowun Dodum", serif;
-    background-color: red;
-    width: 100%;
-    height: 100px;
+  font-family: 'Gowun Dodum', serif;
+  background-color: red;
+  width: 1000px;
 
-    border-radius: 10px;
+  border-radius: 10px;
 
-    display: flex;
-    align-items: center;
-    flex-direction: column;
-    justify-content: center;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  justify-content: center;
 }
 
-.top>p {
-    font-size: 45px;
-    font-weight: bold;
+.top > p {
+  font-size: 45px;
+  font-weight: bold;
 }
 
 /* 중단 부분 */
 .main {
-    font-family: "Gowun Dodum", serif;
-    background-image: url(images/gridBackground.avif);
-    background-position: center;
+  font-family: 'Gowun Dodum', serif;
+  background-image: url(images/gridBackground.avif);
+  background-position: center;
 
-    width: 100%;
-    /* height: 65vh; */
+  width: 1000px;
 
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    justify-content: center;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
 }
 
 #pokemonImg {
-    width: 500px;
-    /* height: 55vh; */
-
-    transform: rotate(0deg);
-    margin-right: 80px;
+  width: 400px;
+  margin
+  transform: rotate(0deg);
+  margin-right: 100px;
+  margin-bottom: 30px;
 }
 
-#teammate {
-    display: flex;
-    flex-direction: column;
+#pokemonIntro {
+  display: flex;
+  flex-direction: column;
 }
 
-#mate_name {
-    background-color: white;
+.IntroContent {
+  background-color: white;
 
-    border: 3px solid red;
-    border-radius: 10px;
+  border: 3px solid red;
+  border-radius: 10px;
 
-    width: 40vw;
-    height: 7vh;
+  width: 300px;
 
-    padding: 5px;
-    margin-bottom: 5vh;
+  padding: 5px;
+  margin-bottom: 10px;
 }
 
-#mate_content {
-    background-color: white;
+#type_intro {
+  display: flex;
+  flex-direction: row;
+}
 
-    border: 3px solid red;
-    border-radius: 10px;
+#type_intro > h3 {
+  border-radius: 5px;
 
-    width: 40vw;
-    height: 35vh;
+  padding: 8px;
+  margin-bottom: 10px;
+}
 
-    padding: 5px;
-    align-items: center;
-    justify-content: center;
+#whatType1 {
+  border: 3px solid red;
+  font-weight: bold;
+  margin-right: 20px;
+}
+
+#whatType2 {
+  background-color: red;
+}
+
+#whatType3 {
+  background-color: brown;
+  margin-left: 10px;
+}
+
+#name_intro {
+  font-weight: bold;
+}
+
+#hobby_intro {
+  font-weight: bold;
+  font-size: 20px;
+}
+
+#strong_intro {
+  font-weight: bold;
+  font-size: 20px;
 }
 
 /* 하단 부분 */
 .down {
-    font-family: "Gowun Dodum", serif;
-    background-image: url(images/gridBackground.avif);
-    background-position: center;
+  font-family: 'Gowun Dodum', serif;
+  background-image: url(images/gridBackground.avif);
+  background-position: center;
 
-    /* width: 100%; */
-    /* height: 100px; */
+  width: 1000px;
+  padding: 10px auto 10px auto;
 
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
 }
 
 .downBtn {
-    font-family: "Gowun Dodum", serif;
-    border: 3px solid black;
-    border-radius: 5px;
+  font-family: 'Gowun Dodum', serif;
+  border: 3px solid black;
+  border-radius: 5px;
 
-    background-color: red;
+  background-color: red;
 
-    color: white;
-    font-size: 20px;
+  color: white;
+  font-size: 15px;
 
-    width: 280px;
-    height: 50px;
+  width: 150px;
+  height: 40px;
 
-    margin: 0 2vw 0 2vw;
+  margin: 0 20px 0 20px;
 }
 
-#detail_modal {
-    display: none;
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100vh;
-    overflow: auto;
-    background: rgba(0, 0, 0, 0.5);
-}
-
-#modal_popup {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    padding: 20px;
-    background: red;
-    border-radius: 20px;
-}
-
-main {
-    width: 100%;
-    display: flex;
-    flex-direction: column;
-    align-items: stretch;
-    justify-content: flex-start;
-}
