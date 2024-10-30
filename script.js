@@ -22,9 +22,9 @@ const db = getFirestore(app);
 
 // 디렉토리에서 html을 로드하는 메서드
 function loadIntro(num) {
-    $('link[rel="stylesheet"]').attr('href', `styles${num}.css`);
-    $(".drOh").load(`memberIntro${num}.html`);
+    $('link[rel="stylesheet"]').attr('href', `styles_css/styles${num}.css`);
     $(".drOh").empty();
+    $(".drOh").load(`/memberIntro_html/memberIntro${num}.html`);    
 }
 
 // 몬스터볼을 누르면 오박사님을 새로운 html 파일로 대체하기
@@ -62,7 +62,7 @@ $('.ClosePopUp').on('click', function () {
 // 검색 기능!
 $('#searchButton').click(function () {
     // 검색창에 입력한 값을 변수에 저장
-    let searchInput = $('#searchText').val();
+    let searchInput = $('#searchInput').val();
     // 포켓몬 도감 페이지 url에 searchInput 문자열을 합쳐주기
     let url = "https://pokemonkorea.co.kr/pokedex?word=" + searchInput;
     // 새 창에서 열기
