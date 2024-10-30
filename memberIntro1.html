@@ -29,6 +29,7 @@
 </div>
 
 <script>
+    // 먹이 주기 버튼
     $('#button1').click(function () {
         let audio = new Audio('sounds/Ascending7.mp3');
         audio.play();
@@ -44,11 +45,18 @@
         });
     });
 
+    // 쓰다듬기 버튼
     $('#button3').click(function () {
-        alert("마우스로 쓰다듬어 보세요. :^D");
+        alert("마우스로 쓰다듬어 보세요 :^D");
     });
+
+    // 벼리짱 위에 마우스를 올렸을 때와 내렸을 때
     $('.member1Pocketmon').mouseenter(function () {
         let audio = new Audio('sounds/HelloBabyGirlSound.mp3');
         audio.play();
+        $('.member1Pocketmon').attr('src', 'images/두드리짱.png');
+    });
+    $('.member1Pocketmon').mouseleave(function () {
+        $('.member1Pocketmon').attr('src', 'images/벼리짱.png');
     });
 </script>

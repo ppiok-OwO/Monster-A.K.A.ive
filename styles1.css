@@ -15,21 +15,12 @@
 
 /* 멤버를 대표하는 포켓몬의 이미지 */
 .member1Pocketmon {
-  background-color: pink;
+  background-color: skyblue;
   width: 300px;
   height: 300px;
-  margin: 40px 40px 10px 0px;
+  margin: 40px 20px 10px 0px;
   border: 10px solid red;
   border-radius: 50%;
-}
-
-/* 포켓몬 이미지에 마우스를 올리면 진화를 한다! */
-.member1Pocketmon:hover {
-  /* 이미지 크기 증가 */
-  transform: scale(125%, 125%);
-  /* 어떤 이미지로 바꿀지 링크 알려주기 */
-  content: url('images/두드리짱.png');
-  background-color: skyblue;
 }
 
 /* 자기소개 카드 */
