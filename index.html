@@ -19,24 +19,32 @@
 
         /* 전체 높이 설정 */
         body {
-            min-height: 100vh;
+            min-height: 70vh;
+            max-height: 80vh;
+            width: 1700px;
+            margin: 0 auto;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+
+            overflow: auto;
         }
 
         /* 전체 너비로 페이지를 설정 */
-        * {
+        /* * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
-        }
+        } */
 
         /* 헤더(상단 바) */
         header {
-            height: 10vh;
+            height: 100px;
+            width: 100%;
             font-family: "Black Han Sans", sans-serif;
             font-size: 30px;
             background-color: rgb(206, 0, 0);
             padding: 0;
-            width: 100%;
         }
 
         /* 헤더(상단 바) 속 메뉴들 */
@@ -55,7 +63,7 @@
 
         /* 몬스터볼 이미지 */
         .profile>img {
-            height: 225px;
+            height: 200px;
             margin: 40px 15px;
             padding: 0;
             border: 3px solid black;
@@ -70,7 +78,10 @@
 
         /* 전체 레이아웃 정렬하기 <sideBar | rightSection> 구조로 */
         .layout {
-            display: flex;
+            width: 100%;
+            height: 900px;
+
+            display: inline-flex;
             flex-wrap: nowrap;
             flex-direction: row;
             align-items: flex-start;
@@ -95,7 +106,6 @@
         /* 상단바 오른쪽 구역 */
         .rightSection {
             width: 100%;
-            height: 100vh;
             display: flex;
             flex-direction: column;
             align-items: center;
