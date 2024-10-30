@@ -35,6 +35,7 @@ for (let i = 1; i <= 6; i++) {
     });
 }
 
+// 랜덤 포켓몬을 구경해보자!
 $("#randomPokemon").click(function () {
     const ball_num = Math.floor(Math.random() * 6) + 1;
     loadIntro(ball_num);
