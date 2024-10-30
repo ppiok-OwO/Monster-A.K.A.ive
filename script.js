@@ -20,27 +20,24 @@ const firebaseConfig = {
 const app = initializeApp(firebaseConfig);
 const db = getFirestore(app);
 
+// 디렉토리에서 html을 로드하는 메서드
+function loadIntro(num) {
+    $('link[rel="stylesheet"]').attr('href', `styles${num}.css`);
+    $(".drOh").load(`memberIntro${num}.html`);
+    $(".drOh").empty();
+}
+
 // 몬스터볼을 누르면 오박사님을 새로운 html 파일로 대체하기
-// 각 html파일에 해당하는 css파일 적용하기
-$(".memberImage1").click(async function () {
-    $('link[rel="stylesheet"]').attr('href', 'styles1.css');
-    $(".drOh").load('memberIntro1.html');
-});
-$(".memberImage2").click(async function () {
-    $('link[rel="stylesheet"]').attr('href', 'styles2.css');
-    $(".drOh").load('memberIntro2.html');
-});
-$(".memberImage3").click(async function () {
-    $('link[rel="stylesheet"]').attr('href', 'styles3.css');
-    $(".drOh").load('memberIntro3.html');
-});
-$(".memberImage4").click(async function () {
-    $('link[rel="stylesheet"]').attr('href', 'styles4.css');
-    $(".drOh").load('memberIntro4.html');
-});
-$(".memberImage5").click(async function () {
-    $('link[rel="stylesheet"]').attr('href', 'styles5.css');
-    $(".drOh").load('memberIntro5.html');
+// 각 html 파일에 해당하는 css 파일 적용하기
+for (let i = 1; i <= 6; i++) {
+    $(`.memberImage${i}`).click(function () {
+        loadIntro(i);
+    });
+}
+
+$("#randomPokemon").click(function () {
+    const ball_num = Math.floor(Math.random() * 6) + 1;
+    loadIntro(ball_num);
 });
 
 // 오늘 날짜 표시하기

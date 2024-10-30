@@ -6,7 +6,7 @@
   // 폰트 바꾸고 싶으실 때!
   "editor.fontFamily": "'IBM Plex Mono', Menlo, Monaco, 'Courier New', monospace",
   // 글씨 크기 바꾸고 싶으실 때!
-  "editor.fontSize": 20,
+  "editor.fontSize": 18,
   "editor.mouseWheelZoom": true,
   "editor.minimap.enabled": false,
 
