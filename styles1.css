@@ -28,7 +28,7 @@
   /* 이미지 크기 증가 */
   transform: scale(125%, 125%);
   /* 어떤 이미지로 바꿀지 링크 알려주기 */
-  content: url('/images/두드리짱.png');
+  content: url('images/두드리짱.png');
   background-color: skyblue;
 }
 
