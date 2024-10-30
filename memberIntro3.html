@@ -1,0 +1,128 @@
+<div class="memberIntro">
+  <main>
+    <h2 class="A0">포켓몬 도감</h2>
+
+    <audio id="jumpSound" src="sounds\jump.mp3"></audio>
+
+    <article>
+      <div class="A1">
+        <img
+          id="jumpingImage"
+          src="images/파오리.png"
+          alt="점프할 이미지"
+          onclick="toggleJumpImage()"
+        />
+        <div class="A2">
+          <img src="images/Pokeball-PNG-Photos-279x279.png" />
+          <div class="A3">
+            <h1>이름 : 사공세흔</h1>
+            <p>MBTI : ISFP</p>
+            <p>나이 : 1999년생</p>
+            <p>성별 : 남자</p>
+            <p>좋아하는 게임 : 피파</p>
+            <p>특이사항 : 당근을 싫어함</p>
+          </div>
+        </div>
+      </div>
+      <div class="B1">
+        <button onclick="toggleJumpImage()"><b>간식 주기</b></button>
+        <button onclick="openModal()"><b>말을 건다</b></button>
+        <button onclick="shakeImage()"><b>쓰다듬기</b></button>
+      </div>
+    </article>
+
+    <div id="myModal" class="modal">
+      <div class="modal-content">
+        <span class="close" onclick="closeModal()">&times;</span>
+        <h2>방명록을 작성해 주세요 :</h2>
+        <p><textarea id="guestbook" placeholder="방명록 남기기"></textarea></p>
+        <button class="B2" onclick="addEntry()">저장하기</button>
+        <div id="guestbookDisplay"></div>
+      </div>
+    </div>
+  </main>
+
+  <script>
+    let isJumping = false;
+    let jumpCount = 0;
+    const maxJumpCount = 3;
+
+    let guestbookEntries = [];
+
+    function toggleJumpImage() {
+      const image = document.getElementById('jumpingImage');
+      const jumpSound = document.getElementById('jumpSound');
+
+      if (isJumping) {
+        image.style.animationPlayState = 'paused';
+        jumpCount = 0;
+      } else {
+        image.style.animationPlayState = 'running';
+        jumpCount = 0;
+        startJumping(image);
+      }
+      jumpSound.currentTime = 0;
+      jumpSound.play();
+
+      isJumping = !isJumping;
+    }
+
+    function startJumping(image) {
+      const jumpInterval = setInterval(() => {
+        jumpCount++;
+
+        if (jumpCount >= maxJumpCount) {
+          clearInterval(jumpInterval);
+          image.style.animationPlayState = 'paused';
+          isJumping = false;
+        }
+      }, 600);
+    }
+
+    function openModal() {
+      document.getElementById('myModal').style.display = 'block';
+    }
+
+    function closeModal() {
+      document.getElementById('myModal').style.display = 'none';
+    }
+
+    window.onclick = function (event) {
+      const modal = document.getElementById('myModal');
+      if (event.target == modal) {
+        closeModal();
+      }
+    };
+
+    function addEntry() {
+      const guestbookInput = document.getElementById('guestbook');
+      const entry = guestbookInput.value.trim();
+
+      if (entry) {
+        guestbookEntries.push(entry);
+        guestbookInput.value = '';
+        displayEntries();
+      }
+    }
+
+    function displayEntries() {
+      const guestbookDisplay = document.getElementById('guestbookDisplay');
+      guestbookDisplay.innerHTML = guestbookEntries
+        .map((entry) => `<p>${entry}</p>`)
+        .join('');
+    }
+
+    function shakeImage() {
+      const image = document.getElementById('jumpingImage');
+      image.style.animation = 'shake 0.5s ease';
+
+      image.addEventListener(
+        'animationend',
+        () => {
+          image.style.animation = '';
+        },
+        { once: true },
+      );
+    }
+  </script>
+</div>
