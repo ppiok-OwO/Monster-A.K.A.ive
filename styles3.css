@@ -116,6 +116,8 @@ body {
   border-radius: 50%;
   width: 100px;
   height: 100px;
+  font-size: 20px;
+  background-color: gold;
 }
 
 .modal {
@@ -131,7 +133,7 @@ body {
 }
 
 .modal-content {
-  background-color: #fefefe;
+  background-color: wheat;
   margin: 10% auto;
   padding: 20px;
   border: 1px solid #888;
@@ -161,16 +163,17 @@ body {
   height: 70%;
   margin-top: 10px;
   padding: 10px;
-  border: 1px solid #ccc;
+  border: 3px solid #ccc;
   border-radius: 5px;
   resize: none;
+  background-color: wheat;
 }
 
 #guestbookDisplay {
   margin-top: 20px;
   max-height: 50%;
   overflow-y: auto;
-  border: 1px solid #ccc;
+  border: 3px solid #ccc;
   padding: 10px;
   border-radius: 5px;
 }
