@@ -62,3 +62,66 @@
   background-color: gold;
   box-shadow: 5px 5px blue;
 }
+
+/* 모달창 관련 css */
+
+.modal {
+  display: none;
+  position: fixed;
+  z-index: 1;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+  background-color: rgba(0, 0, 0, 0.5);
+}
+
+.modal-content {
+  background-color: coral;
+  margin: 10% auto;
+  padding: 20px;
+  border: 1px solid black;
+  width: 80vw;
+  height: 50vh;
+  overflow: auto;
+  text-align: center;
+}
+
+.close {
+  font-family: 'Jua', sans-serif;
+  color: black;
+  float: right;
+  font-size: 28px;
+  font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+  color: black;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+#guestbook {
+  width: 100%;
+  height: 70%;
+  margin-top: 10px;
+  padding: 10px;
+  border: 3px solid black;
+  border-radius: 20px;
+  resize: none;
+  background-color: wheat;
+}
+
+#guestbookDisplay {
+  margin-top: 20px;
+  height: 70px;
+  max-height: 50%;
+  overflow-y: auto;
+  border: 3px solid black;
+  border-radius: 20px;
+  padding: 10px;
+  border-radius: 5px;
+  background-color: wheat;
+}

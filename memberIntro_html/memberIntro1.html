@@ -27,6 +27,16 @@
         <button id="button2">말을 건다</button>
         <button id="button3">쓰다듬기</button>
     </div>
+
+    <div id="myModal" class="modal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <h2>방명록을 작성해 주세요 :</h2>
+            <p><textarea id="guestbook" placeholder="방명록 남기기"></textarea></p>
+            <button class="B2" onclick="addEntry()">저장하기</button>
+            <div id="guestbookDisplay"></div>
+        </div>
+    </div>
 </div>
 
 <script>
@@ -45,6 +55,35 @@
             });
         });
     });
+
+    // 말을 건다 버튼
+    $('#button2').click(function () {
+        $('#myModal').show();
+    });
+    // 모달창 닫기
+    $('.close').click(function () {
+        $('#myModal').hide();
+    });
+
+    // 방명록에 기록된 밸류를 배열에 저장하기
+    let guestbookEntries = [];
+    function addEntry() {
+        const guestbookInput = $('#guestbook');
+        const entry = guestbookInput.val().trim();
+
+        if (entry) {
+            // entry의 값을 배열에 넣어준다.
+            guestbookEntries.push(entry);
+            // 배열에 저장이 끝났다면 guestbookInput의 밸류를 빈 문자열로 설정해준다.
+            guestbookInput.val('');
+            displayEntries();
+        }
+    }
+    function displayEntries() {
+        const guestbookDisplay = $('#guestbookDisplay');
+        // 배열의 요소들을 <p>태그로 묶은 문자열을 html()메소드의 인자로 넣어주자
+        guestbookDisplay.html(guestbookEntries.map((entry) => `<p>${entry}</p>`).join(''));
+    }
 
     // 쓰다듬기 버튼
     $('#button3').click(function () {

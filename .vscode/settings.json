@@ -12,7 +12,7 @@
 
   // "terminal.integrated.fontFamily": "'IBM Plex Mono', 'monospace'",
   // "terminal.integrated.fontFamily": "Menlo, Monaco, 'Courier New', monospace",
-  "terminal.integrated.fontFamily": "Hack Nerd Font",
+  "terminal.integrated.fontFamily": "monospace",
   "terminal.integrated.lineHeight": 1.2,
   "terminal.integrated.letterSpacing": 0.5,
   "terminal.integrated.fontSize": 14,
