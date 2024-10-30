@@ -38,6 +38,10 @@ $(".memberImage4").click(async function () {
     $('link[rel="stylesheet"]').attr('href', 'styles4.css');
     $(".drOh").load('memberIntro4.html');
 });
+$(".memberImage5").click(async function () {
+    $('link[rel="stylesheet"]').attr('href', 'styles5.css');
+    $(".drOh").load('memberIntro5.html');
+});
 
 // 오늘 날짜 표시하기
 let today = new Date();
