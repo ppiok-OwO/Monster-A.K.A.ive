@@ -74,11 +74,12 @@
             let doc = { comment: comment, timestamp: serverTimestamp() };
             await addDoc(collection(db, "guestbook-choi"), doc);
             alert('저장 완료');
+            $('#guestbook').val('');
         } else {
             console.log("값이 없습니다.");
         }
 
-        let q = query(collection(db, "guestbook-choi"), orderBy("timestamp", "desc"), limit(1));
+        let q = query(collection(db, "guestbook-choi"), orderBy("timestamp", "desc"), limit(10));
 
         let docs = await getDocs(q);
 
