@@ -1,0 +1,127 @@
+@import url('https://fonts.googleapis.com/css2?family=Black+Han+Sans&family=Do+Hyeon&family=Gowun+Dodum&family=Jua&family=Orbit&family=Song+Myung&display=swap');
+
+/* 멤버를 소개하는 구역(몬스터볼을 클릭하면 "오박사님과 말풍선"이라는 html을 대체한다.) */
+.memberIntro {
+  font-family: 'Orbit', sans-serif;
+  font-weight: 400;
+  font-size: 25px;
+  margin: 40px;
+
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+}
+
+/* 멤버를 대표하는 포켓몬의 이미지 */
+.member1Pocketmon {
+  background-color: skyblue;
+  width: 300px;
+  height: 300px;
+  margin: 40px 20px 10px 0px;
+  border: 10px solid red;
+  border-radius: 50%;
+}
+
+/* 자기소개 카드 */
+.card {
+  margin: 10px;
+  padding: 5px;
+  border: 5px solid black;
+  border-radius: 10px;
+}
+
+/* 자기소개 카드의 헤더 */
+.card-header {
+  background-color: rgb(206, 0, 0);
+  color: white;
+}
+
+/* 자기소개 카드의 내용부분 */
+.card-body {
+  background-color: white;
+  color: black;
+}
+
+.buttons {
+  margin: 0;
+  padding: 10px;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.buttons > button {
+  width: 130px;
+  padding: 5px;
+  margin: 10px 0;
+  border: 5px solid rgb(206, 0, 0);
+  border-radius: 5px;
+  background-color: gold;
+  box-shadow: 5px 5px blue;
+}
+
+/* 모달창 관련 css */
+
+.modal {
+  display: none;
+  position: fixed;
+  z-index: 1;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+  background-color: rgba(0, 0, 0, 0.5);
+}
+
+.modal-content {
+  background-color: coral;
+  margin: 10% auto;
+  padding: 20px;
+  border: 1px solid black;
+  width: 80vw;
+  height: 50vh;
+  overflow: auto;
+  text-align: center;
+}
+
+.close {
+  font-family: 'Jua', sans-serif;
+  color: black;
+  float: right;
+  font-size: 28px;
+  font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+  color: black;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+#guestbook {
+  width: 100%;
+  height: 70%;
+  margin-top: 10px;
+  padding: 10px;
+  border: 3px solid black;
+  border-radius: 20px;
+  resize: none;
+  background-color: wheat;
+}
+
+#guestbookDisplay {
+  margin-top: 20px;
+  height: 70px;
+  max-height: 50%;
+  overflow-y: auto;
+  border: 3px solid black;
+  border-radius: 20px;
+  padding: 10px;
+  border-radius: 5px;
+  background-color: wheat;
+}
