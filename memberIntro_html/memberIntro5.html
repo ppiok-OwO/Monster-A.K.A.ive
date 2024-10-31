@@ -1,0 +1,208 @@
+<script type="module">
+  // firebase 기본 세팅하기
+  import { initializeApp } from 'https://www.gstatic.com/firebasejs/9.22.0/firebase-app.js';
+  import { getFirestore } from 'https://www.gstatic.com/firebasejs/9.22.0/firebase-firestore.js';
+  import {
+    collection,
+    addDoc,
+  } from 'https://www.gstatic.com/firebasejs/9.22.0/firebase-firestore.js';
+  import { getDocs } from 'https://www.gstatic.com/firebasejs/9.22.0/firebase-firestore.js';
+
+  //박양선 파이어베이스 정보
+  const firebaseConfig2 = {
+    apiKey: 'AIzaSyCoMaE7ayY5GeilljeUXisjad8d1XDk7Jo',
+    authDomain: 'monster-akaive.firebaseapp.com',
+    projectId: 'monster-akaive',
+    storageBucket: 'monster-akaive.appspot.com',
+    messagingSenderId: '232516610681',
+    appId: '1:232516610681:web:3ecd9cdcdf2acbebf802a8',
+    measurementId: 'G-ECZZ2DD6SM',
+  };
+
+  // Firebase 인스턴스 초기화
+  const app2 = initializeApp(firebaseConfig2, 'app2');
+  const db2 = getFirestore(app2);
+
+  // 모달 열기 및 DB 방명록 데이터 가져오기 함수
+  window.openGuestbook = async function openGuestbook() {
+    document.getElementById('modalOverlay').style.display = 'flex';
+
+    // DB guestbook 데이터 불러오기
+    let docs = await getDocs(collection(db2, 'guestbook'));
+
+    docs.forEach((doc) => {
+      let row = doc.data();
+      let pokemon_ID = row['pokemon_ID'];
+      let nickname = row['nickname'];
+      let content = row['content'];
+
+      const entry = document.createElement('div');
+      entry.className = 'guestbook-item';
+      entry.innerHTML = `<p><strong>이름: ${nickname}</strong></p><p>${content}</p>`;
+      // 방명록 리스트에 항목 추가
+      document.getElementById('guestbookList').appendChild(entry);
+    });
+    // 초기 안내 메시지를 숨기기
+    const noEntriesMessage = document.getElementById('noEntriesMessage');
+    if (noEntriesMessage) {
+      noEntriesMessage.style.display = 'none';
+    }
+  };
+
+  // 모달 닫기 함수
+  window.closeGuestbook = function closeGuestbook() {
+    document.getElementById('modalOverlay').style.display = 'none';
+  };
+
+  //입력된 방명록 데이터 DB에 올리기 함수
+  window.addEntry = async function addEntry(event) {
+    event.preventDefault(); // 폼 제출 방지
+
+    // 입력된 이름과 메시지 가져오기
+    let pokemon_ID = 'YSmon';
+    let nickname = document.getElementById('nameInput').value;
+    let content = document.getElementById('messageInput').value;
+
+    let doc = {
+      nickname: nickname,
+      pokemon_ID: pokemon_ID,
+      content: content,
+    };
+
+    // Firestore에 문서를 추가
+    await addDoc(collection(db2, 'guestbook'), doc);
+
+    // 입력 필드 초기화
+    document.getElementById('nameInput').value = '';
+    document.getElementById('messageInput').value = '';
+
+    //기존 방명록 리스트 날림
+    document.getElementById('guestbookList').innerHTML = '';
+
+    // DB guestbook 데이터 새롭게 불러오기
+    let docs = await getDocs(collection(db2, 'guestbook'));
+
+    docs.forEach((doc) => {
+      let row = doc.data();
+      let pokemon_ID = row['pokemon_ID'];
+      let nickname = row['nickname'];
+      let content = row['content'];
+
+      const entry = document.createElement('div');
+      entry.className = 'guestbook-item';
+      entry.innerHTML = `<p><strong>이름: ${nickname}</strong></p><p>${content}</p>`;
+      // 방명록 리스트에 항목 추가
+      document.getElementById('guestbookList').appendChild(entry);
+    });
+  };
+
+  // 버튼 요소 가져오기
+  const vibrateButton = document.getElementById('vibrateButton');
+  const vibrateImage = document.getElementById('vibrateImage');
+  const soundEffect = document.getElementById('soundEffect');
+
+  // 버튼 클릭 시 이미지에 진동 효과 추가
+  vibrateButton.addEventListener('click', () => {
+    // 진동 애니메이션 클래스 추가
+    vibrateImage.classList.add('vibrate');
+
+    // 오디오 재생
+    soundEffect.currentTime = 0; // 시작 위치를 0으로 설정하여 처음부터 재생
+    soundEffect.play();
+
+    // 애니메이션 시간이 지나면 진동 클래스 제거
+    setTimeout(() => {
+      vibrateImage.classList.remove('vibrate');
+    }, 700); // CSS 애니메이션 지속 시간과 일치
+  });
+</script>
+<div class="memberIntro">
+  <div class="pys_pokemon-card">
+    <!-- 상단: 이미지와 포켓몬 정보 -->
+    <div class="pys_pokemon-header">
+      <div class="pys_pokemon-image">
+        <img
+          src="images/양선몬.PNG"
+          alt="인간형포켓몬"
+          class="vibrate-photo"
+          id="vibrateImage"
+        />
+      </div>
+      <div class="pys_pokemon-details">
+        <h1>박양선 몬</h1>
+        <p>인간형 포켓몬</p>
+        <p>타입: B형, INFP</p>
+        <p>성격: 조심한 성격</p>
+      </div>
+    </div>
+
+    <!-- 구분선 -->
+    <div class="pys_separator"></div>
+
+    <!-- 포켓몬 설명 텍스트 -->
+    <div class="pys_pokemon-stats">
+      <p>겁이 많고 신중하다고 알려져 있고</p>
+      <p>이해와 기다림이 필요하다고 한다.</p>
+      <p>하지만 동료와 함께 한다면</p>
+      <p>누구보다 용감해 진다고 한다.</p>
+    </div>
+
+    <!-- 하단 버튼 섹션 -->
+    <div class="pys_bottom-buttons">
+      <div style="text-align: center">
+        <button>⚪</button>
+        <div class="pys_button-text">먹이 주기</div>
+      </div>
+      <div style="text-align: center">
+        <button id="vibrateButton">⚪</button>
+        <audio id="soundEffect" src="sounds/MP_티모 웃음소리-1.mp3"></audio>
+        <div class="pys_button-text">울음 소리</div>
+      </div>
+      <div style="text-align: center">
+        <button onclick="openGuestbook()">⚪</button>
+        <div class="pys_button-text">말 걸기</div>
+      </div>
+    </div>
+    <!-- 모달 오버레이 및 콘텐츠 -->
+    <div class="modal-overlay" id="modalOverlay">
+      <div class="modal-content">
+        <div class="guestbook-title">포켓몬 방명록</div>
+        <div class="guestbook-entry">
+          <p>포켓몬에게 글을 남겨 보아요.</p>
+          <p>상처 받지 않도록 주의해 주세요.</p>
+        </div>
+
+        <form class="entry-form" onsubmit="addEntry(event)">
+          <input
+            id="nameInput"
+            type="text"
+            placeholder="이름을 입력하세요"
+            required
+          />
+          <textarea
+            id="messageInput"
+            placeholder="메시지를 입력하세요 (50자 이하)"
+            rows="3"
+            maxlength="50"
+            required
+          ></textarea>
+
+          <!-- 버튼을 한 줄로 배치 -->
+          <div class="button-container">
+            <button type="submit" id="addbtn">등록하기</button>
+            <button class="close-button" onclick="closeGuestbook()">
+              닫기
+            </button>
+          </div>
+        </form>
+
+        <h3 class="guestbook-list-title">방명록 리스트</h3>
+
+        <!-- 방명록 리스트 -->
+        <div class="guestbook-list" id="guestbookList">
+          <p id="noEntriesMessage">등록된 방명록이 없습니다.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
