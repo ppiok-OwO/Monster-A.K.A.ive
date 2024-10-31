@@ -13,14 +13,14 @@
       crossorigin="anonymous"
     />
     <!-- css파일 링크 -->
-    <link rel="stylesheet" href="styles1.css" />
+    <link rel="stylesheet" href="">
 
     <!-- 메인화면 css -->
     <style>
       /* 구글 폰트 import url */
-      @import url("https://fonts.googleapis.com/css2?family=Black+Han+Sans&family=Do+Hyeon&family=Gowun+Dodum&family=Orbit&family=Song+Myung&display=swap");
+      @import url('https://fonts.googleapis.com/css2?family=Black+Han+Sans&family=Do+Hyeon&family=Gowun+Dodum&family=Orbit&family=Song+Myung&display=swap');
 
-      /* 전체 높이 설정//8~10행 내용추가 */
+      /* 전체 높이 설정 */
       body {
         min-height: 70vh;
         max-height: 80vh;
@@ -29,24 +29,15 @@
         display: flex;
         flex-direction: column;
         align-items: center;
-        background-image: url(https://i.ibb.co/74s5BX0/001-2.jpg);
-        background-repeat: no-repeat;
-        background-size: 100%;
+
         overflow: auto;
       }
-
-      /* 전체 너비로 페이지를 설정 */
-      /* * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        } */
 
       /* 헤더(상단 바) */
       header {
         height: 100px;
         width: 100%;
-        font-family: "Black Han Sans", sans-serif;
+        font-family: 'Black Han Sans', sans-serif;
         font-size: 30px;
         background-image: url(https://i.ibb.co/PQcC3Gs/001-3.jpg);
         background-repeat: no-repeat;
@@ -61,7 +52,7 @@
       }
 
       /* 몬스터볼들 */
-      .profile {
+      .Profile {
         display: inline-flex;
         flex-direction: row;
         justify-content: space-around;
@@ -70,7 +61,7 @@
       }
 
       /* 몬스터볼 이미지 */
-      .profile > img {
+      .Profile > img {
         height: 200px;
         margin: 40px 15px;
         padding: 0;
@@ -79,13 +70,13 @@
       }
 
       /* 몬스터볼에 마우스를 올리면 하얗게 빛이 난다. */
-      .profile > img:hover {
+      .Profile > img:hover {
         transform: scale(125%, 125%);
         filter: brightness(300%);
       }
 
-      /* 전체 레이아웃 정렬하기 <sideBar | rightSection> 구조로 */
-      .layout {
+      /* 전체 레이아웃 정렬하기 <sideBar | RightSection> 구조로 */
+      .Layout {
         width: 100%;
         height: 900px;
 
@@ -98,9 +89,9 @@
         padding: 0;
       }
 
-      /* 왼쪽의 사이드 바//4~6행내용추가 */
+      /* 왼쪽의 사이드 바 */
       #sideBar {
-        font-family: "Do Hyeon", sans-serif;
+        font-family: 'Do Hyeon', sans-serif;
         height: 100vh;
         font-size: 30px;
         background-image: url(https://i.ibb.co/9WcGk2f/001-3.png);
@@ -115,7 +106,7 @@
       }
 
       /* 상단바 오른쪽 구역 */
-      .rightSection {
+      .RightSection {
         width: 100%;
         display: inline-flex;
         flex-direction: column;
@@ -128,7 +119,7 @@
 
       /* 홈 버튼 */
       .fs-4 {
-        font-family: "Black Han Sans", sans-serif;
+        font-family: 'Black Han Sans', sans-serif;
         font-size: 40px;
         border: 6px solid goldenrod;
         background-color: gold;
@@ -137,33 +128,89 @@
         text-align: center;
       }
 
-      /* 오박사님과 말풍선 */
-
-      /* 오박사님 이미지//이미지사이즈변경 */
-      .drOhImage {
-        width: 1600px;
-        height: 400px;
-        margin: 10px;
-        background-color: transparent;
-      }
-
-      /* 말풍선 */
-      .speech-bubble {
-        font-family: "Orbit", sans-serif;
-        position: relative;
-        background: #ffc107;
-        border-radius: 0.4em;
-        padding: 20px;
+      /* 오박사님 이미지 */
+      .DrOhImage {
+        width: 1200px;
+        height: 300px;
+        margin: 10px 60px;
       }
 
       .memberIntro {
         width: 100%;
       }
+
+      .TeamIntro {
+        display: none;
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100vh;
+        overflow: auto;
+        background: rgba(0, 0, 0, 0.5);
+      }
+
+      .TeamIntroPopUp {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        padding: 20px;
+        background: #ffffff;
+        border-radius: 20px;
+
+        align-items: center;
+        justify-content: center;
+      }
+
+      .TeamIntroPopUp > h4 {
+        font-family: 'Black Han Sans', sans-serif;
+        background-color: rgb(206, 0, 0);
+
+        color: white;
+        font-size: 50px;
+        font-weight: normal;
+        text-align: center;
+
+        width: 800px;
+        height: 80px;
+        margin-bottom: 20px;
+        padding: 10px;
+
+        border-radius: 10px;
+      }
+
+      .TeamIntroPopUp > p,
+      h5 {
+        font-family: 'Do Hyeon', sans-serif;
+        font-size: 22px;
+        color: darkblue;
+      }
+
+      .CloseBtnPosition {
+        float: right;
+      }
+
+      .CloseBtnPosition > button {
+        background-color: rgb(206, 0, 0);
+        color: white;
+        width: 100px;
+        height: 40px;
+        font-size: 20px;
+
+        border-color: rgb(206, 0, 0);
+        border-radius: 5px;
+      }
+
+      .CloseBtnPosition > button:hover {
+        background-color: white;
+        color: rgb(206, 0, 0);
+        border-color: rgb(206, 0, 0);
+      }
     </style>
   </head>
-
   <body>
-    <div class="layout">
+    <div class="Layout">
       <!-- 사이드바 -->
       <div
         id="sideBar"
@@ -171,7 +218,7 @@
         style="width: 280px"
       >
         <a
-          href="/"
+          href=""
           class="d-flex align-items-center mb-3 mb-md-0 me-md-auto text-dark text-decoration-none"
         >
           <svg class="bi pe-none me-2" width="40" height="32">
@@ -182,59 +229,88 @@
         <hr />
         <ul class="nav nav-pills flex-column mb-auto">
           <li class="nav-item">
-            <a href="#" class="nav-link active" aria-current="page">
+            <a
+              href="https://github.com/ppiok-OwO/Monster-A.K.A.ive"
+              class="nav-link active"
+              target="_blank"
+              aria-current="page"
+            >
               <svg class="bi pe-none me-2" width="16" height="16">
                 <use xlink:href="#home"></use>
               </svg>
-              포켓몬 타입
+              포켓몬 블로그
             </a>
           </li>
           <li>
-            <a href="#" class="nav-link text-white">
+            <a
+              href="https://princeali.tistory.com/"
+              class="nav-link text-white"
+              target="_blank"
+            >
               <svg class="bi pe-none me-2" width="16" height="16">
                 <use xlink:href="#speedometer2"></use>
               </svg>
-              불꽃 포켓몬
+              최슬기
             </a>
           </li>
           <li>
-            <a href="#" class="nav-link text-white">
+            <a
+              href="https://bbbird1.tistory.com/"
+              class="nav-link text-white"
+              target="_blank"
+            >
               <svg class="bi pe-none me-2" width="16" height="16">
                 <use xlink:href="#speedometer2"></use>
               </svg>
-              물 포켓몬
+              박재상
             </a>
           </li>
           <li>
-            <a href="#" class="nav-link text-white">
+            <a
+              href="https://senii99.tistory.com/"
+              class="nav-link text-white"
+              target="_blank"
+            >
               <svg class="bi pe-none me-2" width="16" height="16">
                 <use xlink:href="#table"></use>
               </svg>
-              풀 포켓몬
+              사공세흔
             </a>
           </li>
           <li>
-            <a href="#" class="nav-link text-white">
+            <a
+              href="https://bb201802.tistory.com/"
+              class="nav-link text-white"
+              target="_blank"
+            >
               <svg class="bi pe-none me-2" width="16" height="16">
                 <use xlink:href="#table"></use>
               </svg>
-              전기 포켓몬
+              송원빈
             </a>
           </li>
           <li>
-            <a href="#" class="nav-link text-white">
+            <a
+              href="https://didtjs123.tistory.com/"
+              class="nav-link text-white"
+              target="_blank"
+            >
               <svg class="bi pe-none me-2" width="16" height="16">
                 <use xlink:href="#table"></use>
               </svg>
-              얼음 포켓몬
+              박양선
             </a>
           </li>
           <li>
-            <a href="#" class="nav-link text-white">
+            <a
+              href="https://blog.naver.com/mosifull33"
+              class="nav-link text-white"
+              target="_blank"
+            >
               <svg class="bi pe-none me-2" width="16" height="16">
                 <use xlink:href="#table"></use>
               </svg>
-              강철 포켓몬
+              서장원
             </a>
           </li>
         </ul>
@@ -247,7 +323,7 @@
             aria-expanded="false"
           >
             <img
-              src="images\한지우.jpg"
+              src="images/한지우.jpg"
               alt=""
               width="50"
               height="50"
@@ -267,7 +343,7 @@
         </div>
       </div>
 
-      <div class="rightSection">
+      <div class="RightSection">
         <!-- 게임 상단 바 -->
         <header class="p-3 text-bg-red">
           <div class="container">
@@ -312,7 +388,9 @@
                 </li>
                 <li></li>
                 <li>
-                  <a href="#" class="nav-link px-2 text-white">팀 소개</a>
+                  <a href="#" class="nav-link px-2 text-white" id="teamIntro"
+                    >팀 소개</a
+                  >
                 </li>
                 <li>
                   <a href="#" class="nav-link px-2 text-white"
@@ -326,6 +404,7 @@
                 role="search"
               >
                 <input
+                  id="searchInput"
                   type="search"
                   class="form-control form-control-dark text-bg-white"
                   placeholder="포켓몬 이름 검색..."
@@ -334,7 +413,11 @@
               </form>
 
               <div class="text-end">
-                <button type="button" class="btn btn-outline-light me-2">
+                <button
+                  type="button"
+                  id="searchButton"
+                  class="btn btn-outline-light me-2"
+                >
                   검색
                 </button>
               </div>
@@ -342,47 +425,61 @@
           </div>
         </header>
 
-        <!-- 오박사님 이미지와 말풍선//말풍선 삭제 및 이미지파일 변경 -->
-        <div class="drOh">
-          <img
-            src="https://i.ibb.co/GcWtRsG/001-2.png"
-            alt="오박사님"
-            class="drOhImage"
-          />
+        <!-- 오박사님 이미지와 말풍선 -->
+        <div class="DrOh">
+          <img src="https://i.ibb.co/GcWtRsG/001-2.png" alt="오박사님" class="DrOhImage" />
         </div>
 
-        <div class="profile">
+        <div class="Profile">
           <!-- 멤버 사진(포켓몬 사진) -->
           <img
             src="images/Pokeball-PNG-Photos-279x279.png"
             alt="몬스터볼"
-            class="memberImage1"
+            class="MemberImage1"
           />
           <img
             src="images/Pokeball-PNG-Photos-279x279.png"
             alt="몬스터볼"
-            class="memberImage2"
+            class="MemberImage2"
           />
           <img
             src="images/Pokeball-PNG-Photos-279x279.png"
             alt="몬스터볼"
-            class="memberImage3"
+            class="MemberImage3"
           />
           <img
             src="images/Pokeball-PNG-Photos-279x279.png"
             alt="몬스터볼"
-            class="memberImage4"
+            class="MemberImage4"
           />
           <img
             src="images/Pokeball-PNG-Photos-279x279.png"
             alt="몬스터볼"
-            class="memberImage5"
+            class="MemberImage5"
           />
           <img
             src="images/Pokeball-PNG-Photos-279x279.png"
             alt="몬스터볼"
-            class="memberImage6"
+            class="MemberImage6"
           />
+        </div>
+            <div class="TeamIntro">
+                <div class="TeamIntroPopUp">
+                    <h4>팀 소개</h4>
+                    <h5>** Monster Archive + A.K.A(As Known As) **</h5>
+                    <p>야생의 코딩이 나타났다?! 오박사님의 조언에 따라 7조의 포켓몬들과 함께 코딩을 해치웁시다!</p>
+                    <p>7조의 포켓몬들을 소개하는 공간입니다.</p>
+                    <h5>** Ground Rules **</h5>
+                    <p>1. 캠프에서 열심히 공부하고 왕초보 탈출하기!</p>
+                    <p>2. 모르는 게 있으면 반드시 물어보기!</p>
+                    <p>3. 소통을 언제나 적극적으로!</p>
+                    <p>4. 매너있게 소통합시다. 언제든 다시 만날 수 있다는 걸 기억하기!</p>
+                    <div class="CloseBtnPosition">
+                        <button class="ClosePopUp">닫 기</button>
+                    </div>
+                </div>
+            </div>
+          </div>
         </div>
       </div>
     </div>
