@@ -1,3 +1,117 @@
+<script>
+  //document.getElementById('addbtn').addEventListener('click', addEntry);
+  // 방명록 작성 값 DB에 보내기
+  // $('#guestbook_submitbtn').click(async function () {
+  //   let pokemon_ID = 'YSmon';
+  //   let nickname = $('#nameInput').val();
+  //   let content = $('#messageInput').val();
+
+  //   let doc = {
+  //     nickname: nickname,
+  //     pokemon_ID: pokemon_ID,
+  //     content: content,
+  //   };
+  //   await addDoc(collection(db, 'guestbook'), doc);
+  // });
+</script>
+<script type="module">
+  // firebase 기본 세팅하기
+  import { initializeApp } from 'https://www.gstatic.com/firebasejs/9.22.0/firebase-app.js';
+  import { getFirestore } from 'https://www.gstatic.com/firebasejs/9.22.0/firebase-firestore.js';
+  import {
+    collection,
+    addDoc,
+  } from 'https://www.gstatic.com/firebasejs/9.22.0/firebase-firestore.js';
+  import { getDocs } from 'https://www.gstatic.com/firebasejs/9.22.0/firebase-firestore.js';
+
+  //박양선 파이어베이스 정보
+  const firebaseConfig = {
+    apiKey: 'AIzaSyCoMaE7ayY5GeilljeUXisjad8d1XDk7Jo',
+    authDomain: 'monster-akaive.firebaseapp.com',
+    projectId: 'monster-akaive',
+    storageBucket: 'monster-akaive.appspot.com',
+    messagingSenderId: '232516610681',
+    appId: '1:232516610681:web:3ecd9cdcdf2acbebf802a8',
+    measurementId: 'G-ECZZ2DD6SM',
+  };
+
+  // Firebase 인스턴스 초기화
+  const app = initializeApp(firebaseConfig);
+  const db = getFirestore(app);
+
+  // 모달 열기 및 DB 방명록 데이터 가져오기 함수
+  window.openGuestbook = async function openGuestbook() {
+    document.getElementById('modalOverlay').style.display = 'flex';
+
+    // DB guestbook 데이터 불러오기
+    let docs = await getDocs(collection(db, 'guestbook'));
+
+    docs.forEach((doc) => {
+      let row = doc.data();
+      let pokemon_ID = row['pokemon_ID'];
+      let nickname = row['nickname'];
+      let content = row['content'];
+      console.log(pokemon_ID);
+      const entry = document.createElement('div');
+      entry.className = 'guestbook-item';
+      entry.innerHTML = `<p><strong>닉네임: ${nickname}</strong></p><p>내용: ${content}</p>`;
+      // 방명록 리스트에 항목 추가
+      document.getElementById('guestbookList').appendChild(entry);
+    });
+    // 초기 안내 메시지를 숨기기
+    const noEntriesMessage = document.getElementById('noEntriesMessage');
+    if (noEntriesMessage) {
+      noEntriesMessage.style.display = 'none';
+    }
+  };
+
+  // 모달 닫기 함수
+  window.closeGuestbook = function closeGuestbook() {
+    document.getElementById('modalOverlay').style.display = 'none';
+  };
+
+  //입력된 방명록 데이터 DB에 올리기 함수
+  window.addEntry = async function addEntry(event) {
+    event.preventDefault(); // 폼 제출 방지
+
+    // 입력된 이름과 메시지 가져오기
+    let pokemon_ID = 'YSmon';
+    let nickname = document.getElementById('nameInput').value;
+    let content = document.getElementById('messageInput').value;
+
+    let doc = {
+      nickname: nickname,
+      pokemon_ID: pokemon_ID,
+      content: content,
+    };
+    console.log(doc);
+    // Firestore에 문서를 추가
+    await addDoc(collection(db, 'guestbook'), doc);
+
+    // 입력 필드 초기화
+    document.getElementById('nameInput').value = '';
+    document.getElementById('messageInput').value = '';
+
+    //기존 방명록 리스트 날림
+    document.getElementById('guestbookList').innerHTML = '';
+
+    // DB guestbook 데이터 새롭게 불러오기
+    let docs = await getDocs(collection(db, 'guestbook'));
+
+    docs.forEach((doc) => {
+      let row = doc.data();
+      let pokemon_ID = row['pokemon_ID'];
+      let nickname = row['nickname'];
+      let content = row['content'];
+      console.log(pokemon_ID);
+      const entry = document.createElement('div');
+      entry.className = 'guestbook-item';
+      entry.innerHTML = `<p><strong>닉네임: ${nickname}</strong></p><p>내용: ${content}</p>`;
+      // 방명록 리스트에 항목 추가
+      document.getElementById('guestbookList').appendChild(entry);
+    });
+  };
+</script>
 <div class="memberIntro">
   <div class="pys_pokemon-card">
     <!-- 상단: 이미지와 포켓몬 정보 -->
@@ -65,7 +179,7 @@
 
           <!-- 버튼을 한 줄로 배치 -->
           <div class="button-container">
-            <button type="submit">등록하기</button>
+            <button type="submit" id="addbtn">등록하기</button>
             <button class="close-button" onclick="closeGuestbook()">
               닫기
             </button>
@@ -80,43 +194,5 @@
         </div>
       </div>
     </div>
-
-    <script>
-      // 모달 열기 함수
-      function openGuestbook() {
-        document.getElementById('modalOverlay').style.display = 'flex';
-      }
-
-      // 모달 닫기 함수
-      function closeGuestbook() {
-        document.getElementById('modalOverlay').style.display = 'none';
-      }
-      function addEntry(event) {
-        event.preventDefault(); // 폼 제출 방지
-
-        // 입력된 이름과 메시지 가져오기
-        const name = '이름: ' + document.getElementById('nameInput').value;
-        const message =
-          '메시지: ' + document.getElementById('messageInput').value;
-
-        // 초기 안내 메시지를 숨기기
-        const noEntriesMessage = document.getElementById('noEntriesMessage');
-        if (noEntriesMessage) {
-          noEntriesMessage.style.display = 'none';
-        }
-
-        // 새 방명록 항목 생성
-        const entry = document.createElement('div');
-        entry.className = 'guestbook-item';
-        entry.innerHTML = `<p><strong>${name}</strong></p><p>${message}</p>`;
-
-        // 방명록 리스트에 항목 추가
-        document.getElementById('guestbookList').appendChild(entry);
-
-        // 입력 필드 초기화
-        document.getElementById('nameInput').value = '';
-        document.getElementById('messageInput').value = '';
-      }
-    </script>
   </div>
 </div>
