@@ -1,198 +1,201 @@
 <!DOCTYPE html>
 <html lang="ko">
-
-<head>
+  <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Monster A.K.A.ive</title>
 
     <!-- 부트스트랩 import -->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
-        integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous" />
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH"
+      crossorigin="anonymous"
+    />
     <!-- css파일 링크 -->
     <link rel="stylesheet" href="">
 
     <!-- 메인화면 css -->
     <style>
-        /* 구글 폰트 import url */
-        @import url('https://fonts.googleapis.com/css2?family=Black+Han+Sans&family=Do+Hyeon&family=Gowun+Dodum&family=Orbit&family=Song+Myung&display=swap');
+      /* 구글 폰트 import url */
+      @import url('https://fonts.googleapis.com/css2?family=Black+Han+Sans&family=Do+Hyeon&family=Gowun+Dodum&family=Orbit&family=Song+Myung&display=swap');
 
-        /* 전체 높이 설정 */
-        body {
-            min-height: 70vh;
-            max-height: 80vh;
-            width: 1700px;
-            margin: 0 auto;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
+      /* 전체 높이 설정 */
+      body {
+        min-height: 70vh;
+        max-height: 80vh;
+        width: 1700px;
+        margin: 0 auto;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
 
-            overflow: auto;
-        }
+        overflow: auto;
+      }
 
-        /* 헤더(상단 바) */
-        header {
-            height: 100px;
-            width: 100%;
-            font-family: 'Black Han Sans', sans-serif;
-            font-size: 30px;
-            background-color: rgb(206, 0, 0);
-            padding: 0;
-        }
+      /* 헤더(상단 바) */
+      header {
+        height: 100px;
+        width: 100%;
+        font-family: 'Black Han Sans', sans-serif;
+        font-size: 30px;
+        background-color: rgb(206, 0, 0);
+        padding: 0;
+      }
 
-        /* 헤더(상단 바) 속 메뉴들 */
-        .nav-link {
-            margin: 0 10px;
-        }
+      /* 헤더(상단 바) 속 메뉴들 */
+      .nav-link {
+        margin: 0 10px;
+      }
 
-        /* 몬스터볼들 */
-        .Profile {
-            display: inline-flex;
-            flex-direction: row;
-            justify-content: space-around;
-            margin: 0;
-            padding: 0;
-        }
+      /* 몬스터볼들 */
+      .Profile {
+        display: inline-flex;
+        flex-direction: row;
+        justify-content: space-around;
+        margin: 0;
+        padding: 0;
+      }
 
-        /* 몬스터볼 이미지 */
-        .Profile>img {
-            height: 200px;
-            margin: 40px 15px;
-            padding: 0;
-            border: 3px solid black;
-            border-radius: 50%;
-        }
+      /* 몬스터볼 이미지 */
+      .Profile > img {
+        height: 200px;
+        margin: 40px 15px;
+        padding: 0;
+        border: 3px solid black;
+        border-radius: 50%;
+      }
 
-        /* 몬스터볼에 마우스를 올리면 하얗게 빛이 난다. */
-        .Profile>img:hover {
-            transform: scale(125%, 125%);
-            filter: brightness(300%);
-        }
+      /* 몬스터볼에 마우스를 올리면 하얗게 빛이 난다. */
+      .Profile > img:hover {
+        transform: scale(125%, 125%);
+        filter: brightness(300%);
+      }
 
-        /* 전체 레이아웃 정렬하기 <sideBar | RightSection> 구조로 */
-        .Layout {
-            width: 100%;
-            height: 900px;
+      /* 전체 레이아웃 정렬하기 <sideBar | RightSection> 구조로 */
+      .Layout {
+        width: 100%;
+        height: 900px;
 
-            display: inline-flex;
-            flex-wrap: nowrap;
-            flex-direction: row;
-            align-items: flex-start;
-            justify-content: flex-start;
-            margin: 0;
-            padding: 0;
-        }
+        display: inline-flex;
+        flex-wrap: nowrap;
+        flex-direction: row;
+        align-items: flex-start;
+        justify-content: flex-start;
+        margin: 0;
+        padding: 0;
+      }
 
-        /* 왼쪽의 사이드 바 */
-        #sideBar {
-            font-family: 'Do Hyeon', sans-serif;
-            height: 100vh;
-            font-size: 30px;
-            background-color: rgb(206, 0, 0);
-            display: inline-flex;
-            flex-wrap: nowrap;
-            flex-direction: normal;
-            align-items: normal;
-            justify-content: normal;
-        }
+      /* 왼쪽의 사이드 바 */
+      #sideBar {
+        font-family: 'Do Hyeon', sans-serif;
+        height: 100vh;
+        font-size: 30px;
+        background-color: rgb(206, 0, 0);
+        display: inline-flex;
+        flex-wrap: nowrap;
+        flex-direction: normal;
+        align-items: normal;
+        justify-content: normal;
+      }
 
-        /* 상단바 오른쪽 구역 */
-        .RightSection {
-            width: 100%;
-            display: inline-flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: space-between;
-            margin: 0;
-            padding: 0;
-            flex-wrap: nowrap;
-        }
+      /* 상단바 오른쪽 구역 */
+      .RightSection {
+        width: 100%;
+        display: inline-flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: space-between;
+        margin: 0;
+        padding: 0;
+        flex-wrap: nowrap;
+      }
 
-        /* 홈 버튼 */
-        .fs-4 {
-            font-family: 'Black Han Sans', sans-serif;
-            font-size: 40px;
-            border: 6px solid goldenrod;
-            background-color: gold;
-            border-radius: 5px;
-            padding: 10px;
-            text-align: center;
-        }
+      /* 홈 버튼 */
+      .fs-4 {
+        font-family: 'Black Han Sans', sans-serif;
+        font-size: 40px;
+        border: 6px solid goldenrod;
+        background-color: gold;
+        border-radius: 5px;
+        padding: 10px;
+        text-align: center;
+      }
 
-        /* 오박사님과 말풍선 */
-        .DrOh {
-            width: 100%;
-            height: 500px;
-            display: inline-flex;
-            flex-direction: row;
-            justify-content: center;
-            align-items: center;
-            margin: 0 0 10px 0;
-            padding: 0;
-        }
+      /* 오박사님과 말풍선 */
+      .DrOh {
+        width: 100%;
+        height: 500px;
+        display: inline-flex;
+        flex-direction: row;
+        justify-content: center;
+        align-items: center;
+        margin: 0 0 10px 0;
+        padding: 0;
+      }
 
-        /* 오박사님 이미지 */
-        .DrOhImage {
-            width: 350px;
-            height: 350px;
-            margin: 10px 60px;
-            border: 3px solid black;
-            border-radius: 50%;
-        }
+      /* 오박사님 이미지 */
+      .DrOhImage {
+        width: 350px;
+        height: 350px;
+        margin: 10px 60px;
+        border: 3px solid black;
+        border-radius: 50%;
+      }
 
-        /* 말풍선 */
-        .speech-bubble {
-            font-family: 'Orbit', sans-serif;
-            position: relative;
-            background: #ffc107;
-            border-radius: 0.4em;
-            padding: 20px;
-        }
+      /* 말풍선 */
+      .speech-bubble {
+        font-family: 'Orbit', sans-serif;
+        position: relative;
+        background: #ffc107;
+        border-radius: 0.4em;
+        padding: 20px;
+      }
 
-        .memberIntro {
-            width: 100%;
-        }
+      .memberIntro {
+        width: 100%;
+      }
 
-        .TeamIntro {
-            display: none;
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100vh;
-            overflow: auto;
-            background: rgba(0, 0, 0, 0.5);
-        }
+      .TeamIntro {
+        display: none;
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100vh;
+        overflow: auto;
+        background: rgba(0, 0, 0, 0.5);
+      }
 
-        .TeamIntroPopUp {
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            padding: 20px;
-            background: #ffffff;
-            border-radius: 20px;
+      .TeamIntroPopUp {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        padding: 20px;
+        background: #ffffff;
+        border-radius: 20px;
 
-            align-items: center;
-            justify-content: center;
-        }
+        align-items: center;
+        justify-content: center;
+      }
 
         .TeamIntroPopUp>h4 {
             font-family: 'Black Han Sans', sans-serif;
             background-color: rgb(206, 0, 0);
 
-            color: white;
-            font-size: 50px;
-            font-weight: normal;
-            text-align: center;
+        color: white;
+        font-size: 50px;
+        font-weight: normal;
+        text-align: center;
 
-            width: 800px;
-            height: 80px;
-            margin-bottom: 20px;
-            padding: 10px;
+        width: 800px;
+        height: 80px;
+        margin-bottom: 20px;
+        padding: 10px;
 
-            border-radius: 10px;
-        }
+        border-radius: 10px;
+      }
 
         .TeamIntroPopUp>p,
         h5 {
@@ -201,26 +204,26 @@
             color: darkblue;
         }
 
-        .CloseBtnPosition {
-            float: right;
-        }
+      .CloseBtnPosition {
+        float: right;
+      }
 
-        .CloseBtnPosition>button {
-            background-color: rgb(206, 0, 0);
-            color: white;
-            width: 100px;
-            height: 40px;
-            font-size: 20px;
+      .CloseBtnPosition > button {
+        background-color: rgb(206, 0, 0);
+        color: white;
+        width: 100px;
+        height: 40px;
+        font-size: 20px;
 
-            border-color: rgb(206, 0, 0);
-            border-radius: 5px;
-        }
+        border-color: rgb(206, 0, 0);
+        border-radius: 5px;
+      }
 
-        .CloseBtnPosition>button:hover {
-            background-color: white;
-            color: rgb(206, 0, 0);
-            border-color: rgb(206, 0, 0);
-        }
+      .CloseBtnPosition > button:hover {
+        background-color: white;
+        color: rgb(206, 0, 0);
+        border-color: rgb(206, 0, 0);
+      }
     </style>
 </head>
 
@@ -311,6 +314,17 @@
                     <li><a class="dropdown-item" href="#">Sign out</a></li>
                 </ul>
             </div>
+          </div>
+        </header>
+
+        <!-- 오박사님 이미지와 말풍선 -->
+        <div class="DrOh">
+          <img src="images\오박사.jpg" alt="오박사님" class="DrOhImage" />
+          <div class="speech-bubble">
+            <h2>
+              오늘은 코딩하기 좋은 날이구나!<br />원하는 포켓몬을 데려가렴.
+            </h2>
+          </div>
         </div>
 
         <div class="RightSection">
@@ -391,7 +405,9 @@
                     </div>
                 </div>
             </div>
+          </div>
         </div>
+      </div>
     </div>
     </div>
     </div>
@@ -399,11 +415,12 @@
     <!-- J쿼리 import -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <!-- 부트스트랩의 스크립트 import -->
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
-        integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
-        crossorigin="anonymous"></script>
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
+      crossorigin="anonymous"
+    ></script>
     <!-- 내가 만든 JS파일 import -->
     <script type="module" src="script.js"></script>
-</body>
-
+  </body>
 </html>

@@ -79,11 +79,7 @@
             console.log("값이 없습니다.");
         }
 
-<<<<<<< HEAD
-        let q = query(collection(db, "guestbook-choi"), orderBy("timestamp", "desc"));
-=======
         let q = query(collection(db, "guestbook-choi"), orderBy("timestamp", "desc"), limit(10));
->>>>>>> c7b4ce089472ea3f8731cec169bc021fe892aef4
 
         let docs = await getDocs(q);
 
