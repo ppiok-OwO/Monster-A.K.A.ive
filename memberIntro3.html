@@ -1,8 +1,10 @@
-<div class="MemberIntro">
+<div class="memberIntro">
   <main>
     <h2 class="A0">포켓몬 도감</h2>
 
-    <audio id="jumpSound" src="sounds\jump.mp3"></audio>
+    <audio id="jumpSound" src="sounds/jump.mp3"></audio>
+    <audio id="duckSound" src="sounds/duck.mp3"></audio>
+    <!-- 추가된 부분 -->
 
     <article>
       <div class="A1">
@@ -25,21 +27,11 @@
         </div>
       </div>
       <div class="B1">
-        <button onclick="toggleJumpImage()"><b>간식 주기</b></button>
-        <button onclick="openModal()"><b>말을 건다</b></button>
-        <button onclick="shakeImage()"><b>쓰다듬기</b></button>
+        <button id="GiveSnack"><b>간식 주기</b></button>
+        <button id="TalkToDuck"><b>말을 건다</b></button>
+        <button id="Pet"><b>쓰다듬기</b></button>
       </div>
     </article>
-
-    <div id="myModal" class="Modal">
-      <div class="Modal-Content">
-        <span class="Close" onclick="closeModal()">&times;</span>
-        <h2>방명록을 작성해 주세요 :</h2>
-        <p><textarea id="guestbook" placeholder="방명록 남기기"></textarea></p>
-        <button class="B2" onclick="addEntry()">저장하기</button>
-        <div id="guestbookDisplay"></div>
-      </div>
-    </div>
   </main>
 
   <script>
@@ -47,82 +39,56 @@
     let jumpCount = 0;
     const maxJumpCount = 3;
 
-    let guestbookEntries = [];
-
     function toggleJumpImage() {
-      const image = document.getElementById('jumpingImage');
-      const jumpSound = document.getElementById('jumpSound');
+      const $image = $('#jumpingImage');
+      const jumpSound = $('#jumpSound')[0];
 
       if (isJumping) {
-        image.style.animationPlayState = 'paused';
+        $image.css('animation-play-state', 'paused');
         jumpCount = 0;
       } else {
-        image.style.animationPlayState = 'running';
+        $image.css('animation-play-state', 'running');
         jumpCount = 0;
-        startJumping(image);
+        startJumping($image);
       }
+
       jumpSound.currentTime = 0;
       jumpSound.play();
 
       isJumping = !isJumping;
     }
 
-    function startJumping(image) {
+    function startJumping($image) {
       const jumpInterval = setInterval(() => {
         jumpCount++;
 
         if (jumpCount >= maxJumpCount) {
           clearInterval(jumpInterval);
-          image.style.animationPlayState = 'paused';
+          $image.css('animation-play-state', 'paused');
           isJumping = false;
         }
       }, 600);
     }
 
-    function openModal() {
-      document.getElementById('myModal').style.display = 'block';
-    }
-
-    function closeModal() {
-      document.getElementById('myModal').style.display = 'none';
-    }
-
-    window.onclick = function (event) {
-      const modal = document.getElementById('myModal');
-      if (event.target == modal) {
-        closeModal();
-      }
-    };
-
-    function addEntry() {
-      const guestbookInput = document.getElementById('guestbook');
-      const entry = guestbookInput.value.trim();
-
-      if (entry) {
-        guestbookEntries.push(entry);
-        guestbookInput.value = '';
-        displayEntries();
-      }
-    }
-
-    function displayEntries() {
-      const guestbookDisplay = document.getElementById('guestbookDisplay');
-      guestbookDisplay.innerHTML = guestbookEntries
-        .map((entry) => `<p>${entry}</p>`)
-        .join('');
-    }
-
     function shakeImage() {
-      const image = document.getElementById('jumpingImage');
-      image.style.animation = 'shake 0.5s ease';
+      const $image = $('#jumpingImage');
+      $image.css('animation', 'shake 0.5s ease');
 
-      image.addEventListener(
-        'animationend',
-        () => {
-          image.style.animation = '';
-        },
-        { once: true },
-      );
+      // 애니메이션이 끝난 후 원래 상태로 복원
+      setTimeout(() => {
+        $image.css('animation', '');
+      }, 500); // 0.5초 후 원래 상태로 복원
     }
+
+    function playDuckSound() {
+      const duckSound = $('#duckSound')[0];
+      duckSound.currentTime = 0;
+      duckSound.play();
+    }
+
+    // 버튼 클릭 이벤트 핸들러
+    $('#GiveSnack').on('click', toggleJumpImage);
+    $('#TalkToDuck').on('click', playDuckSound);
+    $('#Pet').on('click', shakeImage);
   </script>
 </div>
