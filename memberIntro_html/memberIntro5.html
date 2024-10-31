@@ -35,10 +35,10 @@
       let pokemon_ID = row['pokemon_ID'];
       let nickname = row['nickname'];
       let content = row['content'];
-      console.log(pokemon_ID);
+
       const entry = document.createElement('div');
       entry.className = 'guestbook-item';
-      entry.innerHTML = `<p><strong>닉네임: ${nickname}</strong></p><p>내용: ${content}</p>`;
+      entry.innerHTML = `<p><strong>이름: ${nickname}</strong></p><p>${content}</p>`;
       // 방명록 리스트에 항목 추가
       document.getElementById('guestbookList').appendChild(entry);
     });
@@ -68,7 +68,7 @@
       pokemon_ID: pokemon_ID,
       content: content,
     };
-    console.log(doc);
+
     // Firestore에 문서를 추가
     await addDoc(collection(db2, 'guestbook'), doc);
 
@@ -87,21 +87,46 @@
       let pokemon_ID = row['pokemon_ID'];
       let nickname = row['nickname'];
       let content = row['content'];
-      console.log(pokemon_ID);
+
       const entry = document.createElement('div');
       entry.className = 'guestbook-item';
-      entry.innerHTML = `<p><strong>닉네임: ${nickname}</strong></p><p>내용: ${content}</p>`;
+      entry.innerHTML = `<p><strong>이름: ${nickname}</strong></p><p>${content}</p>`;
       // 방명록 리스트에 항목 추가
       document.getElementById('guestbookList').appendChild(entry);
     });
   };
+
+  // 버튼 요소 가져오기
+  const vibrateButton = document.getElementById('vibrateButton');
+  const vibrateImage = document.getElementById('vibrateImage');
+  const soundEffect = document.getElementById('soundEffect');
+
+  // 버튼 클릭 시 이미지에 진동 효과 추가
+  vibrateButton.addEventListener('click', () => {
+    // 진동 애니메이션 클래스 추가
+    vibrateImage.classList.add('vibrate');
+
+    // 오디오 재생
+    soundEffect.currentTime = 0; // 시작 위치를 0으로 설정하여 처음부터 재생
+    soundEffect.play();
+
+    // 애니메이션 시간이 지나면 진동 클래스 제거
+    setTimeout(() => {
+      vibrateImage.classList.remove('vibrate');
+    }, 700); // CSS 애니메이션 지속 시간과 일치
+  });
 </script>
 <div class="memberIntro">
   <div class="pys_pokemon-card">
     <!-- 상단: 이미지와 포켓몬 정보 -->
     <div class="pys_pokemon-header">
       <div class="pys_pokemon-image">
-        <img src="images/양선몬.PNG" alt="인간형포켓몬" />
+        <img
+          src="images/양선몬.PNG"
+          alt="인간형포켓몬"
+          class="vibrate-photo"
+          id="vibrateImage"
+        />
       </div>
       <div class="pys_pokemon-details">
         <h1>박양선 몬</h1>
@@ -129,8 +154,9 @@
         <div class="pys_button-text">먹이 주기</div>
       </div>
       <div style="text-align: center">
-        <button>⚪</button>
-        <div class="pys_button-text">자세히 보기</div>
+        <button id="vibrateButton">⚪</button>
+        <audio id="soundEffect" src="sounds/MP_티모 웃음소리-1.mp3"></audio>
+        <div class="pys_button-text">울음 소리</div>
       </div>
       <div style="text-align: center">
         <button onclick="openGuestbook()">⚪</button>

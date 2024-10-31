@@ -227,3 +227,24 @@
   margin-bottom: 10px;
   text-align: left; /* 왼쪽 정렬 */
 }
+/* 진동 애니메이션 키프레임 설정 */
+@keyframes vibrate {
+  0% {
+    transform: translateX(0);
+  }
+  25% {
+    transform: translateX(-3px);
+  }
+  50% {
+    transform: translateX(3px);
+  }
+  75% {
+    transform: translateX(-3px);
+  }
+  100% {
+    transform: translateX(0);
+  }
+}
+.vibrate {
+  animation: vibrate 0.1s infinite;
+}
