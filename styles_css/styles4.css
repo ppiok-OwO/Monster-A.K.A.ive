@@ -29,7 +29,7 @@
 /* 중단 부분 */
 .main {
   font-family: 'Gowun Dodum', serif;
-  background-image: url(/images/gridBackground.avif);
+  background-image: url(../images/gridBackground.avif);
   background-position: center;
 
   width: 1000px;
@@ -109,7 +109,7 @@
 /* 하단 부분 */
 .down {
   font-family: 'Gowun Dodum', serif;
-  background-image: url(/images/gridBackground.avif);
+  background-image: url(../images/gridBackground.avif);
   background-position: center;
 
   width: 1000px;
