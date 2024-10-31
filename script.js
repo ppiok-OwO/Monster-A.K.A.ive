@@ -1,25 +1,3 @@
-// firebase 기본 세팅하기
-import { initializeApp } from "https://www.gstatic.com/firebasejs/9.22.0/firebase-app.js";
-import { getFirestore } from "https://www.gstatic.com/firebasejs/9.22.0/firebase-firestore.js";
-import {
-    collection,
-    addDoc,
-} from "https://www.gstatic.com/firebasejs/9.22.0/firebase-firestore.js";
-import { getDocs } from "https://www.gstatic.com/firebasejs/9.22.0/firebase-firestore.js";
-// Firebase 구성 정보 설정
-const firebaseConfig = {
-    apiKey: "AIzaSyAViTElQQD1d5t7CCv8_uglHT77suL2jF0",
-    authDomain: "sparta-4253b.firebaseapp.com",
-    projectId: "sparta-4253b",
-    storageBucket: "sparta-4253b.appspot.com",
-    messagingSenderId: "971445982056",
-    appId: "1:971445982056:web:1a3a86105c2eb1f09ffcdd",
-    measurementId: "G-MBVJTVH8LL",
-};
-// Firebase 인스턴스 초기화
-const app = initializeApp(firebaseConfig);
-const db = getFirestore(app);
-
 // 디렉토리에서 html을 로드하는 메서드
 function loadIntro(num) {
     $('link[rel="stylesheet"]').attr('href', `styles_css/styles${num}.css`);
@@ -77,4 +55,3 @@ $('#searchInput').keydown(function (event) {
 });
 // 검색 버튼을 눌러도 검색
 $('#searchButton').click(searchPokemon);
-
