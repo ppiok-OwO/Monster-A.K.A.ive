@@ -1,5 +1,5 @@
 import { initializeApp } from "https://www.gstatic.com/firebasejs/9.22.0/firebase-app.js";
-import { getFirestore, collection, addDoc, getDocs, serverTimestamp, query, orderBy } from "https://www.gstatic.com/firebasejs/9.22.0/firebase-firestore.js";
+import { getFirestore, collection, addDoc, getDocs, serverTimestamp, query, orderBy, limit } from "https://www.gstatic.com/firebasejs/9.22.0/firebase-firestore.js";
 
 // Firebase 구성 정보 설정
 // For Firebase JS SDK v7.20.0 and later, measurementId is optional
@@ -18,4 +18,4 @@ const app = initializeApp(firebaseConfig);
 console.log(app);
 const db = getFirestore(app);
 // export default db;
-export {app, db, collection, addDoc, getDocs, serverTimestamp, query, orderBy};
+export { app, db, collection, addDoc, getDocs, serverTimestamp, query, orderBy, limit };
