@@ -1,0 +1,169 @@
+@import url('https://fonts.googleapis.com/css2?family=Black+Han+Sans&family=Do+Hyeon&family=Gowun+Dodum&family=Jua&family=Orbit&family=Song+Myung&display=swap');
+
+.memberIntro {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+/* 상단 부분 */
+.top {
+  font-family: 'Gowun Dodum', serif;
+  background-color: red;
+  width: 1000px;
+
+  border-radius: 10px;
+
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.top > p {
+  font-size: 45px;
+  font-weight: bold;
+}
+
+/* 중단 부분 */
+.main {
+  font-family: 'Gowun Dodum', serif;
+  background-image: url(/images/gridBackground.avif);
+  background-position: center;
+
+  width: 1000px;
+
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+}
+
+#pokemonImg {
+  width: 400px;
+
+  transform: rotate(0deg);
+  margin-right: 100px;
+  margin-bottom: 30px;
+}
+
+#pokemonIntro {
+  display: flex;
+  flex-direction: column;
+}
+
+.IntroContent {
+  background-color: white;
+
+  border: 3px solid red;
+  border-radius: 10px;
+
+  width: 300px;
+
+  padding: 5px;
+  margin-bottom: 10px;
+}
+
+#type_intro {
+  display: flex;
+  flex-direction: row;
+}
+
+#type_intro > h3 {
+  border-radius: 5px;
+
+  padding: 8px;
+  margin-bottom: 10px;
+}
+
+#whatType1 {
+  border: 3px solid red;
+  font-weight: bold;
+  margin-right: 20px;
+}
+
+#whatType2 {
+  background-color: red;
+}
+
+#whatType3 {
+  background-color: brown;
+  margin-left: 10px;
+}
+
+#name_intro {
+  font-weight: bold;
+}
+
+#hobby_intro {
+  font-weight: bold;
+  font-size: 20px;
+}
+
+#strong_intro {
+  font-weight: bold;
+  font-size: 20px;
+}
+
+/* 하단 부분 */
+.down {
+  font-family: 'Gowun Dodum', serif;
+  background-image: url(/images/gridBackground.avif);
+  background-position: center;
+
+  width: 1000px;
+  padding: 10px auto 10px auto;
+
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+}
+
+.downBtn {
+  font-family: 'Gowun Dodum', serif;
+  border: 3px solid black;
+  border-radius: 5px;
+
+  background-color: red;
+
+  color: white;
+  font-size: 15px;
+
+  width: 150px;
+  height: 40px;
+
+  margin: 0 20px 0 20px;
+}
+
+.downBtn:hover {
+  background-color: white;
+  color: red;
+}
+
+/* 자세히 본다 모달창 */
+.Details {
+  display: none;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100vh;
+  overflow: auto;
+  background: rgba(0, 0, 0, 0.5);
+}
+
+.DetailPopUp {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  padding: 20px;
+  background: #ffffff;
+  border-radius: 20px;
+}
+
+.DetailPopUp > img {
+  border-radius: 10px;
+  border: 3px solid red;
+}

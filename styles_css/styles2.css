@@ -1,0 +1,71 @@
+@import url('https://fonts.googleapis.com/css2?family=Black+Han+Sans&family=Do+Hyeon&family=Gowun+Dodum&family=Jua&family=Orbit&family=Song+Myung&display=swap');
+
+.memberIntro {
+    display: flex;
+	flex-direction: row;
+	align-items: center;
+	justify-content: center;
+}
+
+.mytitle {
+    text-align: center;
+    margin-top: 20px;
+    margin-right: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background-image: url('https://i.ibb.co/q7DFq9L/001-1.jpg');
+    background-position: center;
+    background-size: cover;
+    font-size: 30px;
+    width: 500px;
+    height: 90px;
+    color: #FFFFFF;
+
+
+}
+
+.txt1 {
+    text-align: Center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background-color: #FAFAFA;
+    border: 2px solid#E6E6E6;
+    width: 500px;
+    height: 50px;
+    font-size: 20px;
+}
+
+table {
+    border-collapse: collapse;
+}
+
+.th,
+td {
+    width: 100px;
+    height: 50px;
+    text-align: center;
+    border: 2px solid#E6E6E6;
+
+    vertical-align: top;
+    vertical-align: bottom;
+    vertical-align: middle;
+    margin-top: 10px;
+}
+
+.txt4 {
+    vertical-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background-color: #FAFAFA;
+    border: 2px solid#E6E6E6;
+    width: 500px;
+    height: 150px;
+    margin-top: 10px;
+    font-size: 20px;
+}

@@ -1,0 +1,90 @@
+<div class="memberIntro">
+  <main>
+    <!-- 상단 바 -->
+    <div class="top">
+      <p>포켓몬 도감 등록 완료!</p>
+    </div>
+
+    <!-- 메인 - 포켓몬 이미지와 조원 소개 -->
+    <div class="main">
+      <div class="mainImg">
+        <img src="images/pokemon2.png" id="pokemonImg" />
+      </div>
+      <div id="pokemonIntro">
+        <div id="type_intro">
+          <h3 id="whatType1">타입</h3>
+          <h3 id="whatType2">불</h3>
+          <h3 id="whatType3">땅</h3>
+        </div>
+        <div class="IntroContent">
+          <h3 id="name_intro">이름 : 송원빈</h3>
+        </div>
+        <div class="IntroContent">
+          <h3 id="hobby_intro">좋아하는 것 : 게임, 애니</h3>
+        </div>
+        <div class="IntroContent">
+          <h3 id="strong_intro">강점 : "그럴 수 있지" 마인드</h3>
+        </div>
+      </div>
+    </div>
+
+    <!-- 하단 바 -->
+    <div class="down">
+      <div>
+        <!-- 작동 O 브케인 애니메이션 작동-->
+        <button class="downBtn" id="feed">먹이를 준다</button>
+        <!-- 작동 O 포켓몬 이미지 모달 -->
+        <button class="downBtn" id="showDetail">자세히 본다</button>
+        <!-- 작동 O 오박사님 화면으로 돌아감 -->
+        <button class="downBtn" id="release">놓아준다</button>
+      </div>
+    </div>
+
+    <div class="Details">
+      <div class="DetailPopUp">
+        <img src="images/pokemon2.png" />
+      </div>
+    </div>
+  </main>
+
+  <script>
+    // 먹이준다 애니메이션 프레임
+    let feed_frames = [
+      { transition: 'all 0.3s', transform: 'translate(0px,0)' },
+      { transition: 'all 0.3s', transform: 'translate(20px,0)' },
+      { transition: 'all 0.3s', transform: 'translate(0px,0)' },
+      { transition: 'all 0.3s', transform: 'translate(-20px,0)' },
+      { transition: 'all 0.3s', transform: 'translate(0px,0)' },
+    ];
+    // 먹이준다 애니메이션 옵션
+    let feed_animate_opt = {
+      delay: 0,
+      duration: 1200,
+      iterations: 1,
+      fill: 'backwards',
+    };
+    // 먹이준다 누르면 이미지 움직임
+    document.querySelector('#feed').addEventListener('click', function () {
+      document
+        .querySelector('#pokemonImg')
+        .animate(feed_frames, feed_animate_opt);
+    });
+
+    // 자세히 본다 누르면 포켓몬 사진 모달 등장
+    document
+      .querySelector('#showDetail')
+      .addEventListener('click', function () {
+        document.querySelector('.Details').style.display = 'block';
+      });
+
+    // 모달창 밖 누르면 모달창 닫힘
+    document.querySelector('.Details').addEventListener('click', function () {
+      document.querySelector('.Details').style.display = 'none';
+    });
+
+    // 놓아준다 누르면 초기화면으로 이동 (사실 새로고침시킴)
+    document.querySelector('#release').addEventListener('click', function () {
+      location.reload(true);
+    });
+  </script>
+</div>
