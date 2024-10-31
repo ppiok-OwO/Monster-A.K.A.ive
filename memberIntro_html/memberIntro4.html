@@ -31,13 +31,60 @@
     <!-- 하단 바 -->
     <div class="down">
       <div>
-        <!-- 작동 X -->
+        <!-- 작동 O 브케인 애니메이션 작동-->
         <button class="downBtn" id="feed">먹이를 준다</button>
-        <!-- 작동 X -->
+        <!-- 작동 O 포켓몬 이미지 모달 -->
         <button class="downBtn" id="showDetail">자세히 본다</button>
-        <!-- 작동 X -->
-        <button class="downBtn" id="leave">놓아준다</button>
+        <!-- 작동 O 오박사님 화면으로 돌아감 -->
+        <button class="downBtn" id="release">놓아준다</button>
+      </div>
+    </div>
+
+    <div class="Details">
+      <div class="DetailPopUp">
+        <img src="images/pokemon2.png" />
       </div>
     </div>
   </main>
+
+  <script>
+    // 먹이준다 애니메이션 프레임
+    let feed_frames = [
+      { transition: 'all 0.3s', transform: 'translate(0px,0)' },
+      { transition: 'all 0.3s', transform: 'translate(20px,0)' },
+      { transition: 'all 0.3s', transform: 'translate(0px,0)' },
+      { transition: 'all 0.3s', transform: 'translate(-20px,0)' },
+      { transition: 'all 0.3s', transform: 'translate(0px,0)' },
+    ];
+    // 먹이준다 애니메이션 옵션
+    let feed_animate_opt = {
+      delay: 0,
+      duration: 1200,
+      iterations: 1,
+      fill: 'backwards',
+    };
+    // 먹이준다 누르면 이미지 움직임
+    document.querySelector('#feed').addEventListener('click', function () {
+      document
+        .querySelector('#pokemonImg')
+        .animate(feed_frames, feed_animate_opt);
+    });
+
+    // 자세히 본다 누르면 포켓몬 사진 모달 등장
+    document
+      .querySelector('#showDetail')
+      .addEventListener('click', function () {
+        document.querySelector('.Details').style.display = 'block';
+      });
+
+    // 모달창 밖 누르면 모달창 닫힘
+    document.querySelector('.Details').addEventListener('click', function () {
+      document.querySelector('.Details').style.display = 'none';
+    });
+
+    // 놓아준다 누르면 초기화면으로 이동 (사실 새로고침시킴)
+    document.querySelector('#release').addEventListener('click', function () {
+      location.reload(true);
+    });
+  </script>
 </div>
