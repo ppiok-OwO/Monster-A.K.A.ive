@@ -1,0 +1,132 @@
+<div class="memberIntro">
+    <div style="display: inline-block">
+
+        <audio id="jumpSound" src="sounds/jump.mp3"></audio>
+        <img 
+            id="jumpingImage"
+            src="https://i.ibb.co/SQXmNzK/203eeb40d872f0e0de3d579268f71fd9.jpg" width="500px" height="400px"
+            margin-top="200px"
+            onclick="toggleJumpImage()">
+    </div>
+    
+    <div style="display: inline-block">
+        <P class="mytitle">No.005 &nbsp;&nbsp;&nbsp; 박재상</P>
+    
+        <p class="txt1"><strong>디렉팅포켓몬</strong></td>
+    
+        <table>
+            <colgroup>
+                <col style="background-color:gainsboro;" width="200px" hight="100px">
+                <col style="background-color: #FAFAFA;" width="300px" hight="100px">
+            </colgroup>
+            <tbody>
+                <tr>
+                    <td><strong>타입</strong></td>
+                    <td><strong>방송, 기획, 아트</strong></td>
+                </tr>
+                <tr>
+                    <td><strong>취미</strong></td>
+                    <td><strong>개인방송</strong></td>
+                </tr>
+                <tr>
+                    <td><strong>게임</strong></td>
+                    <td><strong>다잉라이트, 엘더스크롤, 던전앤파이터</strong></td>
+                </tr>
+            </tbody>
+        </table>
+    
+        <p class="txt4"> <strong>&nbsp;개인방송국에서 주로 출현한다.<br>&nbsp;종종 그림을 그리고 있는 모습도 목격된다.<br>&nbsp;대체로 느긋한 편이지만 알게 모르게 자기
+                주장이 강한편이다.</strong></p>
+
+        <div class="button">
+            <div onclick="toggleJumpImage()"><b>간식 주기</b></div>
+        </div>
+        <div class="button">    
+            <div onclick="shakeImage()"><b>쓰다듬기</b></div>
+        </div>
+</div>
+
+<script>
+    let isJumping = false;
+    let jumpCount = 0;
+    const maxJumpCount = 3;
+
+    let guestbookEntries = [];
+
+    function toggleJumpImage() {
+      const image = document.getElementById('jumpingImage');
+      const jumpSound = document.getElementById('jumpSound');
+
+      if (isJumping) {
+        image.style.animationPlayState = 'paused';
+        jumpCount = 0;
+      } else {
+        image.style.animationPlayState = 'running';
+        jumpCount = 0;
+        startJumping(image);
+      }
+      jumpSound.currentTime = 0;
+      jumpSound.play();
+
+      isJumping = !isJumping;
+    }
+
+    function startJumping(image) {
+      const jumpInterval = setInterval(() => {
+        jumpCount++;
+
+        if (jumpCount >= maxJumpCount) {
+          clearInterval(jumpInterval);
+          image.style.animationPlayState = 'paused';
+          isJumping = false;
+        }
+      }, 600);
+    }
+
+    function openModal() {
+      document.getElementById('myModal').style.display = 'block';
+    }
+
+    function closeModal() {
+      document.getElementById('myModal').style.display = 'none';
+    }
+
+    window.onclick = function (event) {
+      const modal = document.getElementById('myModal');
+      if (event.target == modal) {
+        closeModal();
+      }
+    };
+
+    function addEntry() {
+      const guestbookInput = document.getElementById('guestbook');
+      const entry = guestbookInput.value.trim();
+
+      if (entry) {
+        guestbookEntries.push(entry);
+        guestbookInput.value = '';
+        displayEntries();
+      }
+    }
+
+    function displayEntries() {
+      const guestbookDisplay = document.getElementById('guestbookDisplay');
+      guestbookDisplay.innerHTML = guestbookEntries
+        .map((entry) => `<p>${entry}</p>`)
+        .join('');
+    }
+
+    function shakeImage() {
+      const image = document.getElementById('jumpingImage');
+      image.style.animation = 'shake 0.5s ease';
+
+      image.addEventListener(
+        'animationend',
+        () => {
+          image.style.animation = '';
+        },
+        { once: true },
+      );
+    }
+  </script>
+</div>
