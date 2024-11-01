@@ -1,0 +1,71 @@
+<div class="memberIntro">
+  <div>
+    <div class="a0">
+      <h1>저는 이런 사람입니다</h1>
+    </div>
+    <audio
+      audio
+      src="sounds/bgm1.mp3"
+      controls="controls"
+      autoplay="autoplay"
+      type="audio/mpeg"
+      loop
+    ></audio>
+  </div>
+
+  <div>
+    <div class="box1"><img id="p1" src="images/조로아.png" alt="" /></div>
+    <div class="box2">
+      <h3>
+        <p class="font-lato"></p>
+        이름: 서장원
+        <p style="padding-top: 0px"></p>
+      </h3>
+      <p class="para descript" style="">특징 : 말수가 적고 낯가림이 있다</p>
+      <div class="bx-detail">
+        <div class="row"></div>
+        <div class="col-4">
+          <h4 class="mb-3">키</h4>
+          <p>181cm</p>
+        </div>
+        <div class="col-4">
+          <h4 class="mb-3">MBTI</h4>
+          <p>INFP</p>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-4 pl-0">
+          <h4 class="mb-3">성별</h4>
+          <div class="d-flex">
+            <i class="icon-man mr-3">남자</i><i class="icon-woman"></i>
+          </div>
+        </div>
+        <div class="col-4">
+          <h4 class="mb-3">취미</h4>
+          <p>게임, 유튜브시청, 웹소설</p>
+        </div>
+        <div class="col-4">
+          <h4 class="mb-3">좋아하는음식</h4>
+          <p class="d-flex"></p>
+          <div>마라탕 매우 좋아합니다.</div>
+
+          <p></p>
+        </div>
+      </div>
+    </div>
+    <div></div>
+    <div class="button1">
+      <button class="z1">먹이주기</button>
+      <button class="z2">놀아주기</button>
+      <button class="z3">산책하기</button>
+    </div>
+    <script>
+      document.querySelector('.z3').addEventListener('click', (e) => {
+        window.location = 'https://blog.naver.com/mosifull33';
+      });
+      document.querySelector('.z1').addEventListener('click', function () {
+        document.getElementById('p1').src = 'https://data1.pokemonkorea.co.kr/newdata/pokedex/full/057101.png';
+      });
+    </script>
+  </div>
+</div>

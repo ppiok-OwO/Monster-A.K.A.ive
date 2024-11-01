@@ -1,0 +1,96 @@
+<div class="memberIntro">
+  <main>
+    <h2 class="A0">포켓몬 도감</h2>
+
+    <audio id="jumpSound" src="sounds/jump.mp3"></audio>
+    <audio id="duckSound" src="sounds/duck.mp3"></audio>
+    <!-- 추가된 부분 -->
+
+    <article>
+      <div class="A1">
+        <img
+          id="jumpingImage"
+          src="images/파오리.png"
+          alt="점프할 이미지"
+          onclick="toggleJumpImage()"
+        />
+        <div class="A2">
+          <img src="images/Pokeball-PNG-Photos-279x279.png" />
+          <div class="A3">
+            <h1>이름 : 사공세흔</h1>
+            <p>MBTI : ISFP</p>
+            <p>나이 : 1999년생</p>
+            <p>성별 : 남자</p>
+            <p>좋아하는 게임 : 피파</p>
+            <p>특이사항 : 당근을 싫어함</p>
+          </div>
+        </div>
+      </div>
+      <div class="B1">
+        <button id="GiveSnack"><b>간식 주기</b></button>
+        <button id="TalkToDuck"><b>말을 건다</b></button>
+        <button id="Pet"><b>쓰다듬기</b></button>
+      </div>
+    </article>
+  </main>
+
+  <script>
+    $(document).ready(function () {
+      let isJumping = false;
+      let jumpCount = 0;
+      const maxJumpCount = 3;
+
+      function toggleJumpImage() {
+        const $image = $('#jumpingImage');
+        const jumpSound = $('#jumpSound')[0];
+
+        if (isJumping) {
+          $image.css('animation-play-state', 'paused');
+          jumpCount = 0;
+        } else {
+          $image.css('animation-play-state', 'running');
+          jumpCount = 0;
+          startJumping($image);
+        }
+
+        jumpSound.currentTime = 0;
+        jumpSound.play();
+
+        isJumping = !isJumping;
+      }
+
+      function startJumping($image) {
+        const jumpInterval = setInterval(() => {
+          jumpCount++;
+
+          if (jumpCount >= maxJumpCount) {
+            clearInterval(jumpInterval);
+            $image.css('animation-play-state', 'paused');
+            isJumping = false;
+          }
+        }, 600);
+      }
+
+      function shakeImage() {
+        const $image = $('#jumpingImage');
+        $image.css('animation', 'shake 0.5s ease');
+
+        // 애니메이션이 끝난 후 원래 상태로 복원
+        setTimeout(() => {
+          $image.css('animation', '');
+        }, 500); // 0.5초 후 원래 상태로 복원
+      }
+
+      function playDuckSound() {
+        const duckSound = $('#duckSound')[0];
+        duckSound.currentTime = 0;
+        duckSound.play();
+      }
+
+      // 버튼 클릭 이벤트 핸들러
+      $('#GiveSnack').on('click', toggleJumpImage);
+      $('#TalkToDuck').on('click', playDuckSound);
+      $('#Pet').on('click', shakeImage);
+    });
+  </script>
+</div>
