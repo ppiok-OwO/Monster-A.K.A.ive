@@ -1,520 +1,411 @@
 <!DOCTYPE html>
 <html lang="ko">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Monster A.K.A.ive</title>
 
-    <!-- 부트스트랩 import -->
-    <link
-      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
-      rel="stylesheet"
-      integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH"
-      crossorigin="anonymous"
-    />
-    <!-- css파일 링크 -->
-    <link rel="stylesheet" href="">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Monster A.K.A.ive</title>
 
-    <!-- 메인화면 css -->
-    <style>
-      /* 구글 폰트 import url */
-      @import url('https://fonts.googleapis.com/css2?family=Black+Han+Sans&family=Do+Hyeon&family=Gowun+Dodum&family=Orbit&family=Song+Myung&display=swap');
+  <!-- 부트스트랩 import -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous" />
+  <!-- css파일 링크 -->
+  <link rel="stylesheet" href="">
 
-      /* 전체 높이 설정 */
-      body {
-        min-height: 70vh;
-        max-height: 80vh;
-        width: 1700px;
-        margin: 0 auto;
-        display: flex;
-        flex-direction: column;
-        align-items: center;
+  <!-- 메인화면 css -->
+  <style>
+    /* 구글 폰트 import url */
+    @import url('https://fonts.googleapis.com/css2?family=Black+Han+Sans&family=Do+Hyeon&family=Gowun+Dodum&family=Orbit&family=Song+Myung&display=swap');
 
-        overflow: auto;
-      }
+    /* 전체 높이 설정 */
+    body {
+      min-height: 70vh;
+      max-height: 80vh;
+      width: 1700px;
+      margin: 0 auto;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
 
-      /* 헤더(상단 바) */
-      header {
-        height: 100px;
-        width: 100%;
-        font-family: 'Black Han Sans', sans-serif;
-        font-size: 30px;
-        background-color: rgb(206, 0, 0);
-        padding: 0;
-      }
+      overflow: auto;
+    }
 
-      /* 헤더(상단 바) 속 메뉴들 */
-      .nav-link {
-        margin: 0 10px;
-      }
+    /* 헤더(상단 바) */
+    header {
+      height: 100px;
+      width: 100%;
+      font-family: 'Black Han Sans', sans-serif;
+      font-size: 30px;
+      background-color: rgb(206, 0, 0);
+      padding: 0;
+    }
 
-      /* 몬스터볼들 */
-      .Profile {
-        display: inline-flex;
-        flex-direction: row;
-        justify-content: space-around;
-        margin: 0;
-        padding: 0;
-      }
+    /* 헤더(상단 바) 속 메뉴들 */
+    .nav-link {
+      margin: 0 10px;
+    }
 
-      /* 몬스터볼 이미지 */
-      .Profile > img {
-        height: 200px;
-        margin: 40px 15px;
-        padding: 0;
-        border: 3px solid black;
-        border-radius: 50%;
-      }
+    /* 몬스터볼들 */
+    .Profile {
+      display: inline-flex;
+      flex-direction: row;
+      justify-content: space-around;
+      margin: 0;
+      padding: 0;
+    }
 
-      /* 몬스터볼에 마우스를 올리면 하얗게 빛이 난다. */
-      .Profile > img:hover {
-        transform: scale(125%, 125%);
-        filter: brightness(300%);
-      }
+    /* 몬스터볼 이미지 */
+    .Profile>img {
+      height: 200px;
+      margin: 40px 15px;
+      padding: 0;
+      border: 3px solid black;
+      border-radius: 50%;
+    }
 
-      /* 전체 레이아웃 정렬하기 <sideBar | RightSection> 구조로 */
-      .Layout {
-        width: 100%;
-        height: 900px;
+    /* 몬스터볼에 마우스를 올리면 하얗게 빛이 난다. */
+    .Profile>img:hover {
+      transform: scale(125%, 125%);
+      filter: brightness(300%);
+    }
 
-        display: inline-flex;
-        flex-wrap: nowrap;
-        flex-direction: row;
-        align-items: flex-start;
-        justify-content: flex-start;
-        margin: 0;
-        padding: 0;
-      }
+    /* 전체 레이아웃 정렬하기 <sideBar | RightSection> 구조로 */
+    .Layout {
+      width: 100%;
+      height: 900px;
 
-      /* 왼쪽의 사이드 바 */
-      #sideBar {
-        font-family: 'Do Hyeon', sans-serif;
-        height: 100vh;
-        font-size: 30px;
-        background-color: rgb(206, 0, 0);
-        display: inline-flex;
-        flex-wrap: nowrap;
-        flex-direction: normal;
-        align-items: normal;
-        justify-content: normal;
-      }
+      display: inline-flex;
+      flex-wrap: nowrap;
+      flex-direction: row;
+      align-items: flex-start;
+      justify-content: flex-start;
+      margin: 0;
+      padding: 0;
+    }
 
-      /* 상단바 오른쪽 구역 */
-      .RightSection {
-        width: 100%;
-        display: inline-flex;
-        flex-direction: column;
-        align-items: center;
-        justify-content: space-between;
-        margin: 0;
-        padding: 0;
-        flex-wrap: nowrap;
-      }
+    /* 왼쪽의 사이드 바 */
+    #sideBar {
+      font-family: 'Do Hyeon', sans-serif;
+      height: 100vh;
+      font-size: 30px;
+      background-color: rgb(206, 0, 0);
+      display: inline-flex;
+      flex-wrap: nowrap;
+      flex-direction: normal;
+      align-items: normal;
+      justify-content: normal;
+    }
 
-      /* 홈 버튼 */
-      .fs-4 {
-        font-family: 'Black Han Sans', sans-serif;
-        font-size: 40px;
-        border: 6px solid goldenrod;
-        background-color: gold;
-        border-radius: 5px;
-        padding: 10px;
-        text-align: center;
-      }
+    /* 상단바 오른쪽 구역 */
+    .RightSection {
+      width: 100%;
+      display: inline-flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: space-between;
+      margin: 0;
+      padding: 0;
+      flex-wrap: nowrap;
+    }
 
-      /* 오박사님과 말풍선 */
-      .DrOh {
-        width: 100%;
-        height: 500px;
-        display: inline-flex;
-        flex-direction: row;
-        justify-content: center;
-        align-items: center;
-        margin: 0 0 10px 0;
-        padding: 0;
-      }
+    /* 홈 버튼 */
+    .fs-4 {
+      font-family: 'Black Han Sans', sans-serif;
+      font-size: 40px;
+      border: 6px solid goldenrod;
+      background-color: gold;
+      border-radius: 5px;
+      padding: 10px;
+      text-align: center;
+    }
 
-      /* 오박사님 이미지 */
-      .DrOhImage {
-        width: 350px;
-        height: 350px;
-        margin: 10px 60px;
-        border: 3px solid black;
-        border-radius: 50%;
-      }
+    /* 오박사님과 말풍선 */
+    .DrOh {
+      width: 100%;
+      height: 500px;
+      display: inline-flex;
+      flex-direction: row;
+      justify-content: center;
+      align-items: center;
+      margin: 0 0 10px 0;
+      padding: 0;
+    }
 
-      /* 말풍선 */
-      .speech-bubble {
-        font-family: 'Orbit', sans-serif;
-        position: relative;
-        background: #ffc107;
-        border-radius: 0.4em;
-        padding: 20px;
-      }
+    /* 오박사님 이미지 */
+    .DrOhImage {
+      width: 350px;
+      height: 350px;
+      margin: 10px 60px;
+      border: 3px solid black;
+      border-radius: 50%;
+    }
 
-      .memberIntro {
-        width: 100%;
-      }
+    /* 말풍선 */
+    .speech-bubble {
+      font-family: 'Orbit', sans-serif;
+      position: relative;
+      background: #ffc107;
+      border-radius: 0.4em;
+      padding: 20px;
+    }
 
-      .TeamIntro {
-        display: none;
-        position: absolute;
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: 100vh;
-        overflow: auto;
-        background: rgba(0, 0, 0, 0.5);
-      }
+    .memberIntro {
+      width: 100%;
+    }
 
-      .TeamIntroPopUp {
-        position: absolute;
-        top: 50%;
-        left: 50%;
-        transform: translate(-50%, -50%);
-        padding: 20px;
-        background: #ffffff;
-        border-radius: 20px;
+    .TeamIntro {
+      display: none;
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100vh;
+      overflow: auto;
+      background: rgba(0, 0, 0, 0.5);
+    }
 
-        align-items: center;
-        justify-content: center;
-      }
+    .TeamIntroPopUp {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      padding: 20px;
+      background: #ffffff;
+      border-radius: 20px;
 
-      .TeamIntroPopUp > h4 {
-        font-family: 'Black Han Sans', sans-serif;
-        background-color: rgb(206, 0, 0);
+      align-items: center;
+      justify-content: center;
+    }
 
-        color: white;
-        font-size: 50px;
-        font-weight: normal;
-        text-align: center;
+    .TeamIntroPopUp>h4 {
+      font-family: 'Black Han Sans', sans-serif;
+      background-color: rgb(206, 0, 0);
 
-        width: 800px;
-        height: 80px;
-        margin-bottom: 20px;
-        padding: 10px;
+      color: white;
+      font-size: 50px;
+      font-weight: normal;
+      text-align: center;
 
-        border-radius: 10px;
-      }
+      width: 800px;
+      height: 80px;
+      margin-bottom: 20px;
+      padding: 10px;
 
-      .TeamIntroPopUp > p,
-      h5 {
-        font-family: 'Do Hyeon', sans-serif;
-        font-size: 22px;
-        color: darkblue;
-      }
+      border-radius: 10px;
+    }
 
-      .CloseBtnPosition {
-        float: right;
-      }
+    .TeamIntroPopUp>p,
+    h5 {
+      font-family: 'Do Hyeon', sans-serif;
+      font-size: 22px;
+      color: darkblue;
+    }
 
-      .CloseBtnPosition > button {
-        background-color: rgb(206, 0, 0);
-        color: white;
-        width: 100px;
-        height: 40px;
-        font-size: 20px;
+    .CloseBtnPosition {
+      float: right;
+    }
 
-        border-color: rgb(206, 0, 0);
-        border-radius: 5px;
-      }
+    .CloseBtnPosition>button {
+      background-color: rgb(206, 0, 0);
+      color: white;
+      width: 100px;
+      height: 40px;
+      font-size: 20px;
 
-      .CloseBtnPosition > button:hover {
-        background-color: white;
-        color: rgb(206, 0, 0);
-        border-color: rgb(206, 0, 0);
-      }
-    </style>
-  </head>
-  <body>
-    <div class="Layout">
-      <!-- 사이드바 -->
-      <div
-        id="sideBar"
-        class="d-flex flex-column flex-shrink-0 p-3 text-bg-red"
-        style="width: 280px"
-      >
-        <a
-          href=""
-          class="d-flex align-items-center mb-3 mb-md-0 me-md-auto text-dark text-decoration-none"
-        >
-          <svg class="bi pe-none me-2" width="40" height="32">
-            <use xlink:href="#bootstrap"></use>
-          </svg>
-          <span class="fs-4">[ Monster A.K.A.ive ]</span>
-        </a>
-        <hr />
-        <ul class="nav nav-pills flex-column mb-auto">
-          <li class="nav-item">
-            <a
-              href="https://github.com/ppiok-OwO/Monster-A.K.A.ive"
-              class="nav-link active"
-              target="_blank"
-              aria-current="page"
-            >
-              <svg class="bi pe-none me-2" width="16" height="16">
-                <use xlink:href="#home"></use>
-              </svg>
-              포켓몬 블로그
-            </a>
-          </li>
-          <li>
-            <a
-              href="https://princeali.tistory.com/"
-              class="nav-link text-white"
-              target="_blank"
-            >
-              <svg class="bi pe-none me-2" width="16" height="16">
-                <use xlink:href="#speedometer2"></use>
-              </svg>
-              최슬기
-            </a>
-          </li>
-          <li>
-            <a
-              href="https://bbbird1.tistory.com/"
-              class="nav-link text-white"
-              target="_blank"
-            >
-              <svg class="bi pe-none me-2" width="16" height="16">
-                <use xlink:href="#speedometer2"></use>
-              </svg>
-              박재상
-            </a>
-          </li>
-          <li>
-            <a
-              href="https://senii99.tistory.com/"
-              class="nav-link text-white"
-              target="_blank"
-            >
-              <svg class="bi pe-none me-2" width="16" height="16">
-                <use xlink:href="#table"></use>
-              </svg>
-              사공세흔
-            </a>
-          </li>
-          <li>
-            <a
-              href="https://bb201802.tistory.com/"
-              class="nav-link text-white"
-              target="_blank"
-            >
-              <svg class="bi pe-none me-2" width="16" height="16">
-                <use xlink:href="#table"></use>
-              </svg>
-              송원빈
-            </a>
-          </li>
-          <li>
-            <a
-              href="https://didtjs123.tistory.com/"
-              class="nav-link text-white"
-              target="_blank"
-            >
-              <svg class="bi pe-none me-2" width="16" height="16">
-                <use xlink:href="#table"></use>
-              </svg>
-              박양선
-            </a>
-          </li>
-          <li>
-            <a
-              href="https://blog.naver.com/mosifull33"
-              class="nav-link text-white"
-              target="_blank"
-            >
-              <svg class="bi pe-none me-2" width="16" height="16">
-                <use xlink:href="#table"></use>
-              </svg>
-              서장원
-            </a>
-          </li>
-        </ul>
-        <hr />
-        <div class="dropdown">
-          <a
-            href="#"
-            class="d-flex align-items-center text-white text-decoration-none dropdown-toggle"
-            data-bs-toggle="dropdown"
-            aria-expanded="false"
-          >
-            <img
-              src="images/한지우.jpg"
-              alt=""
-              width="50"
-              height="50"
-              class="rounded-circle me-2"
-            />
-            <strong>포켓몬 트레이너</strong>
+      border-color: rgb(206, 0, 0);
+      border-radius: 5px;
+    }
+
+    .CloseBtnPosition>button:hover {
+      background-color: white;
+      color: rgb(206, 0, 0);
+      border-color: rgb(206, 0, 0);
+    }
+  </style>
+</head>
+
+<body>
+  <div class="Layout">
+    <!-- 사이드바 -->
+    <div id="sideBar" class="d-flex flex-column flex-shrink-0 p-3 text-bg-red" style="width: 280px">
+      <a href="" class="d-flex align-items-center mb-3 mb-md-0 me-md-auto text-dark text-decoration-none">
+        <svg class="bi pe-none me-2" width="40" height="32">
+          <use xlink:href="#bootstrap"></use>
+        </svg>
+        <span class="fs-4">[ Monster A.K.A.ive ]</span>
+      </a>
+      <hr />
+      <ul class="nav nav-pills flex-column mb-auto">
+        <li class="nav-item">
+          <a href="https://github.com/ppiok-OwO/Monster-A.K.A.ive" class="nav-link active" target="_blank"
+            aria-current="page">
+            <svg class="bi pe-none me-2" width="16" height="16">
+              <use xlink:href="#home"></use>
+            </svg>
+            포켓몬 블로그
           </a>
-          <ul class="dropdown-menu dropdown-menu-white text-small shadow">
-            <li><a class="dropdown-item" href="#">New project...</a></li>
-            <li><a class="dropdown-item" href="#">Settings</a></li>
-            <li><a class="dropdown-item" href="#">Profile</a></li>
-            <li>
-              <hr class="dropdown-divider" />
-            </li>
-            <li><a class="dropdown-item" href="#">Sign out</a></li>
-          </ul>
+        </li>
+        <li>
+          <a href="https://princeali.tistory.com/" class="nav-link text-white" target="_blank">
+            <svg class="bi pe-none me-2" width="16" height="16">
+              <use xlink:href="#speedometer2"></use>
+            </svg>
+            최슬기
+          </a>
+        </li>
+        <li>
+          <a href="https://bbbird1.tistory.com/" class="nav-link text-white" target="_blank">
+            <svg class="bi pe-none me-2" width="16" height="16">
+              <use xlink:href="#speedometer2"></use>
+            </svg>
+            박재상
+          </a>
+        </li>
+        <li>
+          <a href="https://senii99.tistory.com/" class="nav-link text-white" target="_blank">
+            <svg class="bi pe-none me-2" width="16" height="16">
+              <use xlink:href="#table"></use>
+            </svg>
+            사공세흔
+          </a>
+        </li>
+        <li>
+          <a href="https://bb201802.tistory.com/" class="nav-link text-white" target="_blank">
+            <svg class="bi pe-none me-2" width="16" height="16">
+              <use xlink:href="#table"></use>
+            </svg>
+            송원빈
+          </a>
+        </li>
+        <li>
+          <a href="https://didtjs123.tistory.com/" class="nav-link text-white" target="_blank">
+            <svg class="bi pe-none me-2" width="16" height="16">
+              <use xlink:href="#table"></use>
+            </svg>
+            박양선
+          </a>
+        </li>
+        <li>
+          <a href="https://blog.naver.com/mosifull33" class="nav-link text-white" target="_blank">
+            <svg class="bi pe-none me-2" width="16" height="16">
+              <use xlink:href="#table"></use>
+            </svg>
+            서장원
+          </a>
+        </li>
+      </ul>
+      <hr />
+      <div class="dropdown">
+        <a href="#" class="d-flex align-items-center text-white text-decoration-none dropdown-toggle"
+          data-bs-toggle="dropdown" aria-expanded="false">
+          <img src="images/한지우.jpg" alt="" width="50" height="50" class="rounded-circle me-2" />
+          <strong>포켓몬 트레이너</strong>
+        </a>
+        <ul class="dropdown-menu dropdown-menu-white text-small shadow">
+          <li><a class="dropdown-item" href="#">New project...</a></li>
+          <li><a class="dropdown-item" href="#">Settings</a></li>
+          <li><a class="dropdown-item" href="#">Profile</a></li>
+          <li>
+            <hr class="dropdown-divider" />
+          </li>
+          <li><a class="dropdown-item" href="#">Sign out</a></li>
+        </ul>
+      </div>
+    </div>
+    </header>
+    <div class="RightSection">
+      <!-- 게임 상단 바 -->
+      <header class="p-3 text-bg-red">
+        <div class="container">
+          <div class="d-flex flex-wrap align-items-center justify-content-center justify-content-lg-start">
+            <a href="/" class="d-flex align-items-center mb-2 mb-lg-0 text-white text-decoration-none">
+              <svg class="bi me-2" width="40" height="32" role="img" aria-label="Bootstrap">
+                <use xlink:href="#bootstrap"></use>
+              </svg>
+            </a>
+
+            <ul class="nav col-12 col-lg-auto me-lg-auto mb-2 justify-content-center mb-md-0">
+              <li>
+                <a id="header-title" href="https://pokemonkorea.co.kr/pokedex" target="_blank"
+                  class="nav-link px-2 text-warning">포켓몬 도감</a>
+              </li>
+              <!-- 랜덤 포켓몬 상호작용 위해 id 부여 -->
+              <li>
+                <a href="#" class="nav-link px-2 text-white" id="randomPokemon">랜덤 포켓몬!</a>
+              </li>
+              <li></li>
+              <li>
+                <a href="#" class="nav-link px-2 text-white" id="teamIntro">팀 소개</a>
+              </li>
+              <li>
+                <a href="#" class="nav-link px-2 text-white">오늘 날짜 : <span id="today_date"></span></a>
+              </li>
+            </ul>
+
+            <form class="col-12 col-lg-auto mb-3 mb-lg-0 me-lg-3" role="search">
+              <input id="searchInput" type="search" class="form-control form-control-dark text-bg-white"
+                placeholder="포켓몬 이름 검색..." aria-label="Search" />
+            </form>
+
+            <div class="text-end">
+              <button type="button" id="searchButton" class="btn btn-outline-light me-2">
+                검색
+              </button>
+            </div>
+          </div>
+        </div>
+      </header>
+
+      <!-- 오박사님 이미지와 말풍선 -->
+      <div class="DrOh">
+        <img src="images\오박사.jpg" alt="오박사님" class="DrOhImage" />
+        <div class="speech-bubble">
+          <h2>
+            오늘은 코딩하기 좋은 날이구나!<br />원하는 포켓몬을 데려가렴.
+          </h2>
         </div>
       </div>
 
-      <div class="RightSection">
-        <!-- 게임 상단 바 -->
-        <header class="p-3 text-bg-red">
-          <div class="container">
-            <div
-              class="d-flex flex-wrap align-items-center justify-content-center justify-content-lg-start"
-            >
-              <a
-                href="/"
-                class="d-flex align-items-center mb-2 mb-lg-0 text-white text-decoration-none"
-              >
-                <svg
-                  class="bi me-2"
-                  width="40"
-                  height="32"
-                  role="img"
-                  aria-label="Bootstrap"
-                >
-                  <use xlink:href="#bootstrap"></use>
-                </svg>
-              </a>
-
-              <ul
-                class="nav col-12 col-lg-auto me-lg-auto mb-2 justify-content-center mb-md-0"
-              >
-                <li>
-                  <a
-                    id="header-title"
-                    href="https://pokemonkorea.co.kr/pokedex"
-                    target="_blank"
-                    class="nav-link px-2 text-warning"
-                    >포켓몬 도감</a
-                  >
-                </li>
-                <!-- 랜덤 포켓몬 상호작용 위해 id 부여 -->
-                <li>
-                  <a
-                    href="#"
-                    class="nav-link px-2 text-white"
-                    id="randomPokemon"
-                    >랜덤 포켓몬!</a
-                  >
-                </li>
-                <li></li>
-                <li>
-                  <a href="#" class="nav-link px-2 text-white" id="teamIntro"
-                    >팀 소개</a
-                  >
-                </li>
-                <li>
-                  <a href="#" class="nav-link px-2 text-white"
-                    >오늘 날짜 : <span id="today_date"></span
-                  ></a>
-                </li>
-              </ul>
-
-              <form
-                class="col-12 col-lg-auto mb-3 mb-lg-0 me-lg-3"
-                role="search"
-              >
-                <input
-                  id="searchInput"
-                  type="search"
-                  class="form-control form-control-dark text-bg-white"
-                  placeholder="포켓몬 이름 검색..."
-                  aria-label="Search"
-                />
-              </form>
-
-              <div class="text-end">
-                <button
-                  type="button"
-                  id="searchButton"
-                  class="btn btn-outline-light me-2"
-                >
-                  검색
-                </button>
-              </div>
-            </div>
-          </div>
-        </header>
-
-        <!-- 오박사님 이미지와 말풍선 -->
-        <div class="DrOh">
-          <img src="images\오박사.jpg" alt="오박사님" class="DrOhImage" />
-          <div class="speech-bubble">
-            <h2>
-              오늘은 코딩하기 좋은 날이구나!<br />원하는 포켓몬을 데려가렴.
-            </h2>
-          </div>
-        </div>
-
-        <div class="Profile">
-          <!-- 멤버 사진(포켓몬 사진) -->
-          <img
-            src="images/Pokeball-PNG-Photos-279x279.png"
-            alt="몬스터볼"
-            class="MemberImage1"
-          />
-          <img
-            src="images/Pokeball-PNG-Photos-279x279.png"
-            alt="몬스터볼"
-            class="MemberImage2"
-          />
-          <img
-            src="images/Pokeball-PNG-Photos-279x279.png"
-            alt="몬스터볼"
-            class="MemberImage3"
-          />
-          <img
-            src="images/Pokeball-PNG-Photos-279x279.png"
-            alt="몬스터볼"
-            class="MemberImage4"
-          />
-          <img
-            src="images/Pokeball-PNG-Photos-279x279.png"
-            alt="몬스터볼"
-            class="MemberImage5"
-          />
-          <img
-            src="images/Pokeball-PNG-Photos-279x279.png"
-            alt="몬스터볼"
-            class="MemberImage6"
-          />
-        </div>
-            <div class="TeamIntro">
-                <div class="TeamIntroPopUp">
-                    <h4>팀 소개</h4>
-                    <h5>** Monster Archive + A.K.A(As Known As) **</h5>
-                    <p>야생의 코딩이 나타났다?! 오박사님의 조언에 따라 7조의 포켓몬들과 함께 코딩을 해치웁시다!</p>
-                    <p>7조의 포켓몬들을 소개하는 공간입니다.</p>
-                    <h5>** Ground Rules **</h5>
-                    <p>1. 캠프에서 열심히 공부하고 왕초보 탈출하기!</p>
-                    <p>2. 모르는 게 있으면 반드시 물어보기!</p>
-                    <p>3. 소통을 언제나 적극적으로!</p>
-                    <p>4. 매너있게 소통합시다. 언제든 다시 만날 수 있다는 걸 기억하기!</p>
-                    <div class="CloseBtnPosition">
-                        <button class="ClosePopUp">닫 기</button>
-                    </div>
-                </div>
-            </div>
+      <div class="Profile">
+        <!-- 멤버 사진(포켓몬 사진) -->
+        <img src="images/Pokeball-PNG-Photos-279x279.png" alt="몬스터볼" class="MemberImage1" />
+        <img src="images/Pokeball-PNG-Photos-279x279.png" alt="몬스터볼" class="MemberImage2" />
+        <img src="images/Pokeball-PNG-Photos-279x279.png" alt="몬스터볼" class="MemberImage3" />
+        <img src="images/Pokeball-PNG-Photos-279x279.png" alt="몬스터볼" class="MemberImage4" />
+        <img src="images/Pokeball-PNG-Photos-279x279.png" alt="몬스터볼" class="MemberImage5" />
+        <img src="images/Pokeball-PNG-Photos-279x279.png" alt="몬스터볼" class="MemberImage6" />
+      </div>
+      <div class="TeamIntro">
+        <div class="TeamIntroPopUp">
+          <h4>팀 소개</h4>
+          <h5>** Monster Archive + A.K.A(As Known As) **</h5>
+          <p>야생의 코딩이 나타났다?! 오박사님의 조언에 따라 7조의 포켓몬들과 함께 코딩을 해치웁시다!</p>
+          <p>7조의 포켓몬들을 소개하는 공간입니다.</p>
+          <h5>** Ground Rules **</h5>
+          <p>1. 캠프에서 열심히 공부하고 왕초보 탈출하기!</p>
+          <p>2. 모르는 게 있으면 반드시 물어보기!</p>
+          <p>3. 소통을 언제나 적극적으로!</p>
+          <p>4. 매너있게 소통합시다. 언제든 다시 만날 수 있다는 걸 기억하기!</p>
+          <div class="CloseBtnPosition">
+            <button class="ClosePopUp">닫 기</button>
           </div>
         </div>
       </div>
     </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
 
-    <!-- J쿼리 import -->
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-    <!-- 부트스트랩의 스크립트 import -->
-    <script
-      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
-      integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
-      crossorigin="anonymous"
-    ></script>
-    <!-- 내가 만든 JS파일 import -->
-    <script type="module" src="script.js"></script>
-  </body>
+  <!-- J쿼리 import -->
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <!-- 부트스트랩의 스크립트 import -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
+    crossorigin="anonymous"></script>
+  <!-- 내가 만든 JS파일 import -->
+  <script type="module" src="script.js"></script>
+</body>
+
 </html>

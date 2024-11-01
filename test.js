@@ -18,4 +18,4 @@ const app = initializeApp(firebaseConfig);
 console.log(app);
 const db = getFirestore(app);
 // export default db;
-export {app, db, collection, addDoc, getDocs, serverTimestamp, query, orderBy, limit};
+export { app, db, collection, addDoc, getDocs, serverTimestamp, query, orderBy, limit };
