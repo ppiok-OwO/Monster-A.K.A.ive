@@ -66,7 +66,7 @@
         $('#myModal').hide();
     });
 
-    import { app, db, collection, addDoc, getDocs, serverTimestamp, query, orderBy } from './test.js';
+    import { app, db, collection, addDoc, getDocs, serverTimestamp, query, orderBy, limit } from './test.js';
 
     $("#B2").click(async function () {
         let comment = $('#guestbook').val();
@@ -74,11 +74,12 @@
             let doc = { comment: comment, timestamp: serverTimestamp() };
             await addDoc(collection(db, "guestbook-choi"), doc);
             alert('저장 완료');
+            $('#guestbook').val('');
         } else {
             console.log("값이 없습니다.");
         }
 
-        let q = query(collection(db, "guestbook"), orderBy("timestamp", "desc"));
+        let q = query(collection(db, "guestbook-choi"), orderBy("timestamp", "desc"), limit(10));
 
         let docs = await getDocs(q);
 
