@@ -3,6 +3,15 @@
 이곳은 프로젝트명 <Monster-A.K.A.ive>의 레포지토리입니다!
 
 
+![img_title](images/7조입니다_page-0001.jpg)
+![img_title](images/7조입니다_page-0002.jpg)
+![img_title](images/7조입니다_page-0003.jpg)
+![img_title](images/7조입니다_page-0004.jpg)
+![img_title](images/7조입니다_page-0005.jpg)
+![img_title](images/7조입니다_page-0006.jpg)
+![img_title](images/7조입니다_page-0007.jpg)
+
+
 완성된 결과물은 아래에 배포된 링크를 통해 확인해보실 수 있습니다.
 
 
